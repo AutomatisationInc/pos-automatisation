@@ -9,33 +9,54 @@ import java.util.List;
  * Created by Евгений on 20.03.2017.
  */
 public class cashierServiceImpl implements cashierService {
+
     @Override
-    public List<Dish> getAllResipts() {
+    public Dish addDishToBill(long billId, Dish dish) {
         return null;
     }
 
     @Override
-    public List<Dish> getResiptById(long id) {
+    public void deleteDishFromBill(long billId, Dish dish) {
+
+    }
+
+    @Override
+    public void cleanBill(long id) {
+
+    }
+
+    @Override
+    public double setBonus(int percent) {
+        return 0;
+    }
+
+    @Override
+    public double setBonus(double amount) {
+        return 0;
+    }
+
+    @Override
+    public String setComment(String comment) {
         return null;
     }
 
     @Override
-    public void deleteItemFromResipt(long id) {
+    public Bill getBill(long billId) {
+        return null;
+    }
+
+    @Override
+    public List<Bill> getAllBillsByToDay(Date date) {
+        return null;
+    }
+
+    @Override
+    public void postToKitchen(Bill bill) {
 
     }
 
     @Override
-    public void clearResipt(long id) {
-
-    }
-
-    @Override
-    public void addItemToResipt(Dish dish) {
-
-    }
-
-    @Override
-    public void findResiptByDate(Date date) {
-
+    public List<Bill> divideBill(Bill bill) {
+        return null;
     }
 }

@@ -9,8 +9,8 @@ import java.util.List;
  */
 public class kitchenServiceImpl implements kitchenService {
     @Override
-    public void showOrder(List<Dish> dishes) {
-
+    public List<Bill> showOrder(long id) {
+        return null;
     }
 
     @Override
