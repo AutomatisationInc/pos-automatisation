@@ -2,6 +2,7 @@ package services.impl;
 
 import services.CashierService;
 
+import javax.xml.ws.ServiceMode;
 import java.util.Date;
 import java.util.List;
 
@@ -57,6 +58,11 @@ public class CashierServiceImpl implements CashierService {
 
     @Override
     public List<Bill> divideBill(Bill bill) {
+        return null;
+    }
+
+    @Override
+    public List<Dish> getDishesByType(DishType type) {
         return null;
     }
 
