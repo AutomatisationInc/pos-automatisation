@@ -1,13 +1,11 @@
-package main.java.services.impl;
-
-import main.java.services.kitchenService;
+package services.impl;
 
 import java.util.List;
 
 /**
  * Created by Евгений on 20.03.2017.
  */
-public class kitchenServiceImpl implements kitchenService {
+public class KitchenServiceImpl implements main.java.services.KitchenService {
     @Override
     public List<Bill> showOrder(long id) {
         return null;

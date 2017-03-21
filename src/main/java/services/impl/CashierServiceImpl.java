@@ -1,6 +1,6 @@
-package main.java.services.impl;
+package services.impl;
 
-import main.java.services.cashierService;
+import services.CashierService;
 
 import java.util.Date;
 import java.util.List;
@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by Евгений on 20.03.2017.
  */
-public class cashierServiceImpl implements cashierService {
+public class CashierServiceImpl implements CashierService {
 
     @Override
     public Dish addDishToBill(long billId, Dish dish) {
@@ -57,6 +57,16 @@ public class cashierServiceImpl implements cashierService {
 
     @Override
     public List<Bill> divideBill(Bill bill) {
+        return null;
+    }
+
+    @Override
+    public List<Dish> getDishesByType(Type type) {
+        return null;
+    }
+
+    @Override
+    public List<Type> getTypes() {
         return null;
     }
 }
