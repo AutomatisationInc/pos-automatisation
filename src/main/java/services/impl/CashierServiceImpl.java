@@ -1,7 +1,11 @@
 package services.impl;
 
+import dao.BillDao;
+import dao.DishDao;
+import dao.IngredientDao;
 import models.Bill;
 import models.Dish;
+import models.Ingredient;
 import models.enums.DishType;
 import services.CashierService;
 
@@ -10,9 +14,24 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Created by Евгений on 20.03.2017.
+ * Created by Konstantin on 20.03.2017.
  */
 public class CashierServiceImpl implements CashierService {
+    private DishDao dishDao;
+    private IngredientDao ingredientDao;
+    private BillDao billDao;
+
+    public CashierServiceImpl(DishDao dishDao, IngredientDao ingredientDao, BillDao billDao) {
+        this.dishDao = dishDao;
+        this.ingredientDao = ingredientDao;
+        this.billDao = billDao;
+    }
+
+    @Override
+    public Bill createBill() {
+        Bill bill = new Bill();
+        return bill;
+    }
 
     @Override
     public Dish addDishToBill(long billId, Dish dish) {
@@ -30,33 +49,38 @@ public class CashierServiceImpl implements CashierService {
     }
 
     @Override
-    public double setBonus(int percent) {
-        return 0;
+    public double setBonus(long billId, int percent) {
+        Bill bill = billDao.findById(billId);
+        double bonus = bill.getPrice() * percent/100;
+        return bonus;
     }
 
     @Override
-    public double setBonus(double amount) {
-        return 0;
+    public double setBonus(long billId, double amount) {
+        Bill bill = billDao.findById(billId);
+        bill.setBonus(amount);
+        return amount;
     }
 
     @Override
-    public String setComment(String comment) {
-        return null;
+    public String setComment(long billId, String comment) {
+        Bill bill = billDao.findById(billId);
+        bill.setComment(comment);
+        return comment;
     }
 
     @Override
     public Bill getBill(long billId) {
-        return null;
+        return billDao.findById(billId);
     }
 
     @Override
     public List<Bill> getAllBillsByToDay(Date date) {
-        return null;
+        return billDao.findByDate(date);
     }
-
     @Override
     public void postToKitchen(Bill bill) {
-
+        billDao.save(bill);
     }
 
     @Override
@@ -66,7 +90,7 @@ public class CashierServiceImpl implements CashierService {
 
     @Override
     public List<Dish> getDishesByType(DishType type) {
-        return null;
+        return dishDao.findByType(type);
     }
 
 

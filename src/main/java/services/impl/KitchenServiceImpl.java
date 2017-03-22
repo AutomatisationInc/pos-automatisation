@@ -6,7 +6,7 @@ import services.KitchenService;
 import java.util.List;
 
 /**
- * Created by Евгений on 20.03.2017.
+ * Created by Konstantin on 20.03.2017.
  */
 public class KitchenServiceImpl implements KitchenService {
     @Override

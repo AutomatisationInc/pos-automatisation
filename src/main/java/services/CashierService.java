@@ -12,12 +12,13 @@ import java.util.StringJoiner;
  * Created by Евгений on 20.03.2017.
  */
 public interface CashierService {
+    Bill createBill();
     Dish addDishToBill(long billId , Dish dish);
     void deleteDishFromBill(long billId, Dish dish);
     void cleanBill(long id);
-    double setBonus(int percent);
-    double setBonus(double amount);
-    String setComment(String comment);
+    double setBonus(long billId, int percent);
+    double setBonus(long billId, double amount);
+    String setComment(long billId, String comment);
     Bill getBill(long billId);
     List<Bill> getAllBillsByToDay(Date date);
     void postToKitchen(Bill bill);

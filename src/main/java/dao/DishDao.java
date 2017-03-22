@@ -1,6 +1,7 @@
 package dao;
 
 import models.Dish;
+import models.enums.DishType;
 
 import java.util.List;
 
