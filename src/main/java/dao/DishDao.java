@@ -22,7 +22,7 @@ public interface DishDao {
 
     Dish findByName(String name);
 
-    Dish findByType(DishType type);
+    List<Dish> findByType(DishType type);
 
     List<Dish> findAllDish();
 }
