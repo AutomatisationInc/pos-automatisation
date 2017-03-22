@@ -36,17 +36,29 @@ public class CashierServiceImpl implements CashierService {
 
     @Override
     public Dish addDishToBill(long billId, Dish dish) {
-        return null;
+
+        Bill bill = billDao.findById(billId);
+        bill.getDishList().add(dish);
+        billDao.update(bill);
+        return dish;
     }
 
     @Override
     public void deleteDishFromBill(long billId, Dish dish) {
 
+        Bill bill = billDao.findById(billId);
+        bill.getDishList().remove(dish);
+        billDao.update(bill);
     }
 
     @Override
     public void cleanBill(long id) {
-
+        Bill bill = billDao.findById(id);
+        bill.getDishList().clear();
+        bill.setBonus(0);
+        bill.setComment("");
+        bill.setPrice(0);
+        billDao.update(bill);
     }
 
     @Override

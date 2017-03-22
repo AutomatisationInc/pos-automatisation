@@ -10,12 +10,7 @@ import java.util.List;
  */
 public class KitchenServiceImpl implements KitchenService {
     @Override
-    public List<Bill> showOrder(long id) {
+    public Bill showOrder(long id) {
         return null;
-    }
-
-    @Override
-    public void finishOrder(long id) {
-
     }
 }

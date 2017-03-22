@@ -12,7 +12,7 @@ public class Ingredient {
     private String name;
     private double weight;
     private Date date;
-    List<Dish> dishes;
+    private List<Dish> dishes;
 
     public long getId() {
         return id;
