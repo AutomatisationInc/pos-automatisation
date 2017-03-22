@@ -1,5 +1,7 @@
 package models;
 
+import models.enums.DishType;
+
 import java.util.ArrayList;
 import java.util.List;
 

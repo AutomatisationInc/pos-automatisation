@@ -24,7 +24,7 @@ public class Bill {
         this.id = id;
     }
 
-    public int getBonus() {
+    public double getBonus() {
         return bonus;
     }
 

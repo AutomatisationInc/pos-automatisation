@@ -1,5 +1,8 @@
 package services.impl;
 
+import models.Bill;
+import models.Dish;
+import models.enums.DishType;
 import services.CashierService;
 
 import javax.xml.ws.ServiceMode;
@@ -66,13 +69,9 @@ public class CashierServiceImpl implements CashierService {
         return null;
     }
 
-    @Override
-    public List<Dish> getDishesByType(Type type) {
-        return null;
-    }
 
     @Override
-    public List<Type> getTypes() {
+    public List<DishType> getTypes() {
         return null;
     }
 }
