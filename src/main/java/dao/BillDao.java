@@ -16,8 +16,6 @@ public interface BillDao {
 
     Bill saveOrUpdate(Bill bill);
 
-    Bill findById(long id);
-
     void delete(long id);
 
     void deleteByDate(Date date);
