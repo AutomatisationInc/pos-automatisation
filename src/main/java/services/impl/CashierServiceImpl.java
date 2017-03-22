@@ -10,6 +10,7 @@ import models.enums.DishType;
 import services.CashierService;
 
 import javax.xml.ws.ServiceMode;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -87,15 +88,17 @@ public class CashierServiceImpl implements CashierService {
     public List<Bill> divideBill(Bill bill) {
         return null;
     }
-
     @Override
     public List<Dish> getDishesByType(DishType type) {
         return dishDao.findByType(type);
     }
 
-
     @Override
     public List<DishType> getTypes() {
-        return null;
+        List<DishType> dishTypes = new ArrayList<>();
+        for (DishType dishType : DishType.values()) {
+            dishTypes.add(dishType);
+        }
+        return dishTypes;
     }
 }
