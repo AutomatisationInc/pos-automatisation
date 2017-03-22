@@ -9,7 +9,7 @@ import java.util.List;
 public class Bill {
 
     private long id;
-    private int bonus;
+    private double bonus;
     private double price;
     private String comment;
     private int number;
@@ -28,7 +28,7 @@ public class Bill {
         return bonus;
     }
 
-    public void setBonus(int bonus) {
+    public void setBonus(double bonus) {
         this.bonus = bonus;
     }
 
