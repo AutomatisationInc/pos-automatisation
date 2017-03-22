@@ -1,5 +1,7 @@
 package services;
 
+import models.Bill;
+
 import java.util.List;
 
 /**

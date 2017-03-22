@@ -1,6 +1,7 @@
 package models;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by PavelGrudina on 21.03.2017.
@@ -47,7 +48,7 @@ public class Ingredient {
     public void setDishes(List<Dish> dishes) {
         this.dishes = dishes;
     }
-    public void getDishes() {
+    public List<Dish> getDishes() {
         return dishes;
     }
 
