@@ -1,7 +1,7 @@
-package dao;
+package ua.automatisationInc.pos.dao;
 
 
-import models.Ingredient;
+import ua.automatisationInc.pos.models.Ingredient;
 
 import java.util.List;
 

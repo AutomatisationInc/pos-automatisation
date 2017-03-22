@@ -7,7 +7,7 @@
     <title>Pos-Automatisation</title>
     <style>
         body {
-            background: url("start.jpg") center;
+            background: url("static/img/start.jpg") center;
             background-size: cover;
             link: white;
         }
@@ -46,7 +46,7 @@
 
 </script>
 <div id="transparent-block">
-    <form action="" method="get">
+    <form action="/cashier" method="get">
         <input type="submit" class="button" id="cashier-button" value="CASHIER"/>
     </form>
     <form action="" method="get">

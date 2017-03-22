@@ -1,6 +1,6 @@
-package models;
+package ua.automatisationInc.pos.models;
 
-import models.enums.DishType;
+import ua.automatisationInc.pos.models.enums.DishType;
 
 import java.util.ArrayList;
 import java.util.List;

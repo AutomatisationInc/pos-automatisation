@@ -1,4 +1,4 @@
-package models.enums;
+package ua.automatisationInc.pos.models.enums;
 
 /**
  * Created by Евгений on 21.03.2017.

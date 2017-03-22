@@ -1,15 +1,13 @@
-package services.impl;
+package ua.automatisationInc.pos.services.impl;
 
-import dao.BillDao;
-import dao.DishDao;
-import dao.IngredientDao;
-import models.Bill;
-import models.Dish;
-import models.Ingredient;
-import models.enums.DishType;
-import services.CashierService;
+import ua.automatisationInc.pos.dao.BillDao;
+import ua.automatisationInc.pos.dao.DishDao;
+import ua.automatisationInc.pos.dao.IngredientDao;
+import ua.automatisationInc.pos.models.Bill;
+import ua.automatisationInc.pos.models.Dish;
+import ua.automatisationInc.pos.models.enums.DishType;
+import ua.automatisationInc.pos.services.CashierService;
 
-import javax.xml.ws.ServiceMode;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;

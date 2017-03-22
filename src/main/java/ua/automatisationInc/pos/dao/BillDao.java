@@ -1,6 +1,6 @@
-package dao;
+package ua.automatisationInc.pos.dao;
 
-import models.Bill;
+import ua.automatisationInc.pos.models.Bill;
 
 import java.util.Date;
 import java.util.List;

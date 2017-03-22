@@ -1,7 +1,7 @@
-package dao;
+package ua.automatisationInc.pos.dao;
 
-import models.Dish;
-import models.enums.DishType;
+import ua.automatisationInc.pos.models.Dish;
+import ua.automatisationInc.pos.models.enums.DishType;
 
 import java.util.List;
 
