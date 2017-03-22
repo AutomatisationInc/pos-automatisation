@@ -1,5 +1,9 @@
 package services;
 
+import models.Bill;
+import models.Dish;
+import models.DishType;
+
 import java.util.Date;
 import java.util.List;
 import java.util.StringJoiner;
@@ -8,7 +12,7 @@ import java.util.StringJoiner;
  * Created by Евгений on 20.03.2017.
  */
 public interface CashierService {
-    Dish addDishToBill(long billId ,Dish dish);
+    Dish addDishToBill(long billId , Dish dish);
     void deleteDishFromBill(long billId, Dish dish);
     void cleanBill(long id);
     double setBonus(int percent);

@@ -20,6 +20,8 @@ public interface BillDao {
 
     void deleteByDate(Date date);
 
+    Bill findById(long billId);
+
     List<Bill> findAll();
 
     List<Bill> findByDate(Date date);

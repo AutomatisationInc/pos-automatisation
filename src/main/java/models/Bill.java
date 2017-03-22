@@ -1,11 +1,13 @@
 package models;
 
+import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
 /**
  * Created by PavelGrudina on 21.03.2017.
  */
+
 public class Bill {
 
     private long id;
@@ -24,7 +26,7 @@ public class Bill {
         this.id = id;
     }
 
-    public int getBonus() {
+    public double getBonus() {
         return bonus;
     }
 
