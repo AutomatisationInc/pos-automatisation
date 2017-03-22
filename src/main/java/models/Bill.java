@@ -13,10 +13,25 @@ public class Bill {
     private long id;
     private double bonus;
     private double price;
+    private double totalPrice = price - bonus;
     private String comment;
     private int number;
     private Date date;
     private List<Dish> dishList;
+
+    public Bill(long id, double bonus, double price, String comment, int number, Date date, List<Dish> dishList) {
+        this.id = id;
+        this.bonus = bonus;
+        this.price = price;
+        this.comment = comment;
+        this.number = number;
+        this.date = date;
+        this.dishList = dishList;
+    }
+
+    public Bill() {
+    }
+
 
     public long getId() {
         return id;
@@ -74,6 +89,14 @@ public class Bill {
         this.dishList = dishList;
     }
 
+    public double getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(double totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -98,14 +121,6 @@ public class Bill {
 
     @Override
     public String toString() {
-        return "Bill{" +
-                "id=" + id +
-                ", bonus=" + bonus +
-                ", price=" + price +
-                ", comment='" + comment + '\'' +
-                ", number=" + number +
-                ", date=" + date +
-                ", dishList=" + dishList +
-                '}';
+        return "Bill{" + "id=" + id + ", bonus=" + bonus + ", price=" + price + ", comment='" + comment + '\'' + ", number=" + number + ", date=" + date + ", dishList=" + dishList + '}';
     }
 }

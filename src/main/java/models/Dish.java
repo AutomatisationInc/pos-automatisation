@@ -1,7 +1,7 @@
 package models;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import models.enums.DishType;
+
 import java.util.ArrayList;
 import java.util.List;
 
