@@ -44,6 +44,12 @@ public class Ingredient {
     public void setDate(Date date) {
         this.date = date;
     }
+    public void setDishes(List<Dish> dishes) {
+        this.dishes = dishes;
+    }
+    public void getDishes() {
+        return dishes;
+    }
 
     @Override
     public boolean equals(Object o) {
