@@ -2,20 +2,48 @@ package ua.automatisationInc.pos.models;
 
 import ua.automatisationInc.pos.models.enums.DishType;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by PavelGrudina on 21.03.2017.
  */
+@Entity
+@Table (name = "DISHES")
 public class Dish {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", nullable = false, unique = true)
     private long id;
+
+    @Column (unique = true, length = 300)
     private String name;
+
+    @Enumerated(EnumType.STRING)
     private DishType category;
+
     private double price;
+
     private double weight;
+
+    @ManyToMany (fetch = FetchType.EAGER)
     private List<Ingredient> ingredients = new ArrayList<>();
+
+
+    public Dish(String name, DishType category, double price, double weight, List<Ingredient> ingredients) {
+        this.name = name;
+        this.category = category;
+        this.price = price;
+        this.weight = weight;
+        this.ingredients = ingredients;
+    }
+
+    public Dish() {
+    }
+
+
 
     public long getId() {
         return id;
