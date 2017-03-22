@@ -68,9 +68,6 @@
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
-                <includes>
-                    <include>src/main/resources/data/images/*</include>
-                </includes>
             </resource>
         </resources>
         <plugins>

@@ -1,8 +1,6 @@
-package services;
+package ua.automatisationInc.pos.services;
 
-import models.Bill;
-
-import java.util.List;
+import ua.automatisationInc.pos.models.Bill;
 
 /**
  * Created by Евгений on 20.03.2017.

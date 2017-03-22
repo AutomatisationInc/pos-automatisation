@@ -1,9 +1,7 @@
-package services.impl;
+package ua.automatisationInc.pos.services.impl;
 
-import models.Bill;
-import services.KitchenService;
-
-import java.util.List;
+import ua.automatisationInc.pos.models.Bill;
+import ua.automatisationInc.pos.services.KitchenService;
 
 /**
  * Created by Konstantin on 20.03.2017.

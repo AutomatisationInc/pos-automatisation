@@ -9,6 +9,6 @@ import org.springframework.context.annotation.Import;
  */
 @Configuration
 @Import(PersistenceConfig.class)
-@ComponentScan("ua.automatisationInc.pos.services")
+@ComponentScan("ua.automatisationInc.pos.ua.automatisationInc.pos.services")
 public class RootConfig {
 }

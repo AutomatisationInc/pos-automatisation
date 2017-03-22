@@ -1,4 +1,4 @@
-package models;
+package ua.automatisationInc.pos.models;
 
 import java.util.Date;
 import java.util.List;

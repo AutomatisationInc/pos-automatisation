@@ -1,12 +1,11 @@
-package services;
+package ua.automatisationInc.pos.services;
 
-import models.Bill;
-import models.Dish;
-import models.enums.DishType;
+import ua.automatisationInc.pos.models.Bill;
+import ua.automatisationInc.pos.models.Dish;
+import ua.automatisationInc.pos.models.enums.DishType;
 
 import java.util.Date;
 import java.util.List;
-import java.util.StringJoiner;
 
 /**
  * Created by Евгений on 20.03.2017.

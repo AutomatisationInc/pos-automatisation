@@ -9,6 +9,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  */
 @Configuration
 @EnableTransactionManagement
-@ComponentScan("ua.automatisationInc.pos.dao")
+@ComponentScan("ua.automatisationInc.pos.ua.automatisationInc.pos.dao")
 public class PersistenceConfig {
 }
