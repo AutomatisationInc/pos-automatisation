@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.StringJoiner;
 
 /**
- * Created by Евгений on 20.03.2017.
+ * Created by Kostya on 20.03.2017.
  */
 public interface CashierService {
     Bill createBill();
