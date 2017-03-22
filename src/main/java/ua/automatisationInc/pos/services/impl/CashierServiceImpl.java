@@ -1,5 +1,8 @@
 package ua.automatisationInc.pos.services.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import ua.automatisationInc.pos.dao.BillDao;
 import ua.automatisationInc.pos.dao.DishDao;
 import ua.automatisationInc.pos.dao.IngredientDao;
@@ -9,30 +12,32 @@ import ua.automatisationInc.pos.models.enums.DishType;
 import ua.automatisationInc.pos.services.CashierService;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
 /**
  * Created by Konstantin on 20.03.2017.
  */
+@Service
+@Transactional(readOnly = true)
 public class CashierServiceImpl implements CashierService {
+    @Autowired
     private DishDao dishDao;
+    @Autowired
     private IngredientDao ingredientDao;
+    @Autowired
     private BillDao billDao;
 
-    public CashierServiceImpl(DishDao dishDao, IngredientDao ingredientDao, BillDao billDao) {
-        this.dishDao = dishDao;
-        this.ingredientDao = ingredientDao;
-        this.billDao = billDao;
-    }
-
     @Override
+    @Transactional
     public Bill createBill() {
         Bill bill = new Bill();
         return bill;
     }
 
     @Override
+    @Transactional
     public Dish addDishToBill(long billId, Dish dish) {
 
         Bill bill = billDao.findById(billId);
@@ -42,6 +47,7 @@ public class CashierServiceImpl implements CashierService {
     }
 
     @Override
+    @Transactional
     public void deleteDishFromBill(long billId, Dish dish) {
 
         Bill bill = billDao.findById(billId);
@@ -50,6 +56,7 @@ public class CashierServiceImpl implements CashierService {
     }
 
     @Override
+    @Transactional
     public void cleanBill(long id) {
         Bill bill = billDao.findById(id);
         bill.getDishList().clear();
@@ -60,13 +67,15 @@ public class CashierServiceImpl implements CashierService {
     }
 
     @Override
+    @Transactional
     public double setBonus(long billId, int percent) {
         Bill bill = billDao.findById(billId);
-        double bonus = bill.getPrice() * percent/100;
+        double bonus = bill.getPrice() * percent / 100;
         return bonus;
     }
 
     @Override
+    @Transactional
     public double setBonus(long billId, double amount) {
         Bill bill = billDao.findById(billId);
         bill.setBonus(amount);
@@ -74,6 +83,7 @@ public class CashierServiceImpl implements CashierService {
     }
 
     @Override
+    @Transactional
     public String setComment(long billId, String comment) {
         Bill bill = billDao.findById(billId);
         bill.setComment(comment);
@@ -81,34 +91,40 @@ public class CashierServiceImpl implements CashierService {
     }
 
     @Override
+    @Transactional
     public Bill getBill(long billId) {
         return billDao.findById(billId);
     }
 
     @Override
+    @Transactional
     public List<Bill> getAllBillsByToDay(Date date) {
         return billDao.findByDate(date);
     }
+
     @Override
+    @Transactional
     public void postToKitchen(Bill bill) {
         billDao.save(bill);
     }
 
-    @Override
+    @Override //TODO: it will be later
+    @Transactional
     public List<Bill> divideBill(Bill bill) {
         return null;
     }
+
     @Override
+    @Transactional
     public List<Dish> getDishesByType(DishType type) {
         return dishDao.findByType(type);
     }
 
     @Override
-    public List<DishType> getTypes() {
+    @Transactional
+    public List<DishType> getDishTypes() {
         List<DishType> dishTypes = new ArrayList<>();
-        for (DishType dishType : DishType.values()) {
-            dishTypes.add(dishType);
-        }
+        dishTypes.addAll(Arrays.asList(DishType.values()));
         return dishTypes;
     }
 }
