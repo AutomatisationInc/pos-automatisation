@@ -42,7 +42,6 @@ public class CashierServiceImpl implements CashierService {
 
         Bill bill = billDao.findById(billId);
         bill.getDishList().add(dish);
-        billDao.update(bill);
         return dish;
     }
 
@@ -52,7 +51,6 @@ public class CashierServiceImpl implements CashierService {
 
         Bill bill = billDao.findById(billId);
         bill.getDishList().remove(dish);
-        billDao.update(bill);
     }
 
     @Override
@@ -63,7 +61,7 @@ public class CashierServiceImpl implements CashierService {
         bill.setBonus(0);
         bill.setComment("");
         bill.setPrice(0);
-        billDao.update(bill);
+
     }
 
     @Override

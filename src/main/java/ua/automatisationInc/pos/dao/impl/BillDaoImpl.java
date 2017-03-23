@@ -23,15 +23,6 @@ public class BillDaoImpl implements BillDao {
         return null;
     }
 
-    @Override
-    public Bill update(Bill bill) {
-        return null;
-    }
-
-    @Override
-    public Bill saveOrUpdate(Bill bill) {
-        return null;
-    }
 
     @Override
     public void delete(long id) {
