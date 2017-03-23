@@ -20,7 +20,6 @@
         @import url('https://fonts.googleapis.com/css?family=Bitter');
 
         #header {
-            width: cover;
             margin-top: -1px;
             border: 2px solid white;
             background: #f6ca47;
@@ -44,7 +43,6 @@
         }
 
         #container {
-            size: cover;
             margin: 0 auto; /* Выравнивание по центру */
         }
 
@@ -95,15 +93,15 @@
 </table>
 <div id="container">
     <div id="nav">
-        <input type="image" src="Sandwiches.jpg" class="category-button" id="SENDWICH">
+        <input type="image" src="static/img/Sandwiches.jpg" class="category-button" id="SENDWICH">
         <p><strong>Sandwiches & Burgers</strong></p>
-        <input type="image" src="Snacks.jpg" class="category-button" id="SNACK">
+        <input type="image" src="static/img/Snacks.jpg" class="category-button" id="SNACK">
         <p><strong>Snacks</strong></p>
-        <input type="image" src="Sides.jpg" class="category-button" id="SIDES">
+        <input type="image" src="static/img/Sides.jpg" class="category-button" id="SIDES">
         <p><strong>Sides</strong></p>
-        <input type="image" src="Salad.jpg" class="category-button" id="SALAD">
+        <input type="image" src="static/img/Salad.jpg" class="category-button" id="SALAD">
         <p><strong>Salads</strong></p>
-        <input type="image" src="Dessert.jpg" class="category-button" id="DESSERT">
+        <input type="image" src="static/img/Dessert.jpg" class="category-button" id="DESSERT">
         <p><strong>Desserts</strong></p>
     </div>
     <div id="aside">Правая колонка</div>
