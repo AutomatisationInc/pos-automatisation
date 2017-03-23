@@ -1,18 +1,43 @@
 package ua.automatisationInc.pos.models;
 
+import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 /**
  * Created by PavelGrudina on 21.03.2017.
  */
+@Entity
+@Table (name = "INGREDIENTS")
 public class Ingredient {
 
+    @Id
+    @GeneratedValue (strategy = GenerationType.AUTO)
+    @Column (name = "id", nullable = false, unique = true)
     private long id;
+
+    @Column (unique = true, length = 300)
     private String name;
+
     private double weight;
+
     private Date date;
-    private List<Dish> dishes;
+
+    @ManyToMany (fetch = FetchType.EAGER)
+    private List<Dish> dishes = new ArrayList<>();
+
+    public Ingredient(String name, double weight, Date date, List<Dish> dishes) {
+        this.name = name;
+        this.weight = weight;
+        this.date = date;
+        this.dishes = dishes;
+    }
+
+    public Ingredient() {
+    }
+
+
 
     public long getId() {
         return id;

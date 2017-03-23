@@ -1,22 +1,36 @@
 package ua.automatisationInc.pos.models;
 
+import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
 /**
  * Created by PavelGrudina on 21.03.2017.
  */
-
+@Entity
+@Table(name = "BILLS")
 public class Bill {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", nullable = false, unique = true)
     private long id;
+
     private double bonus;
+
     private double price;
+
     private double totalPrice = price - bonus;
+
     private String comment;
+
     private int number;
+
     private Date date;
+
+    @OneToMany (fetch = FetchType.EAGER)
     private List<Dish> dishList;
+
 
     public Bill(long id, double bonus, double price, String comment, int number, Date date, List<Dish> dishList) {
         this.id = id;
