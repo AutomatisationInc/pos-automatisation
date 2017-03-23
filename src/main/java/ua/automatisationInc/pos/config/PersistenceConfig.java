@@ -20,7 +20,7 @@ import java.util.Properties;
  */
 @Configuration
 @EnableTransactionManagement
-@ComponentScan("ua.automatisationInc.pos.ua.automatisationInc.pos.dao")
+@ComponentScan("ua.automatisationInc.pos.dao")
 public class PersistenceConfig {
     private static final String PROP_DB_DRIVER = "db.driver";
     private static final String PROP_DB_URL = "db.url";
@@ -47,7 +47,7 @@ public class PersistenceConfig {
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
         factory.setDataSource(dataSource());
-        factory.setPackagesToScan("ua.automatisationInc.pos.ua.automatisationInc.pos.models");
+        factory.setPackagesToScan("ua.automatisationInc.pos.models");
 
         HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
         factory.setJpaVendorAdapter(vendorAdapter);
