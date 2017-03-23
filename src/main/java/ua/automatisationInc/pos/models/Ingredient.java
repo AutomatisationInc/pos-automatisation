@@ -24,7 +24,7 @@ public class Ingredient {
 
     private Date date;
 
-    @ManyToMany (fetch = FetchType.EAGER)
+    @ManyToMany (cascade = CascadeType.PERSIST,fetch = FetchType.EAGER)
     private List<Dish> dishes = new ArrayList<>();
 
     public Ingredient(String name, double weight, Date date, List<Dish> dishes) {

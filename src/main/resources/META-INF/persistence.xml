@@ -4,15 +4,17 @@
              xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
              version="2.0">
 
-    <persistence-unit name="bank-application">
+    <persistence-unit name="pos-automatisation">
 
-        <class></class>
+        <class>ua.automatisationInc.pos.models.Dish</class>
+        <class>ua.automatisationInc.pos.models.Bill</class>
+        <class>ua.automatisationInc.pos.models.Ingredient</class>
 
         <properties>
             <property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />
             <property name="javax.persistence.jdbc.url" value="jdbc:h2:tcp://localhost/~/IdeaProjects/pos-automatisation/DB"/>
-            <property name="javax.persistence.jdbc.user" value="plgrudina" />
-            <property name="javax.persistence.jdbc.password" value="niger182" />
+            <property name="javax.persistence.jdbc.user" value="admin" />
+            <property name="javax.persistence.jdbc.password" value="admin" />
 
             <property name="hibernate.show_sql" value="true" />
             <property name="hibernate.hbm2ddl.auto" value="create" />

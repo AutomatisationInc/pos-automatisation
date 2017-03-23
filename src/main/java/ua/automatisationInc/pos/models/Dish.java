@@ -28,7 +28,7 @@ public class Dish {
 
     private double weight;
 
-    @ManyToMany (fetch = FetchType.EAGER)
+    @ManyToMany (cascade = CascadeType.PERSIST,fetch = FetchType.EAGER)
     private List<Ingredient> ingredients = new ArrayList<>();
 
 
