@@ -13,7 +13,7 @@ import ua.automatisationInc.pos.services.CashierService;
  * Created by Man on 21.03.2017.
  */
 @Controller
-@RequestMapping("/cashier") // В jsp должна быть папка cashier, в которой будут 2 jsp: с выбранным типом блюда и без.
+@RequestMapping("") // В jsp должна быть папка cashier, в которой будут 2 jsp: с выбранным типом блюда и без.
 public class CashierController {
     @Autowired
     private CashierService cashierService;
@@ -25,7 +25,7 @@ public class CashierController {
             model.addAttribute("DishesByType", cashierService.getDishesByType(DishType.valueOf(dishType)));
             return "cashier/some-type";
         } else {
-            return "cashier/without-type";
+            return "cashier";
         }
     }
 

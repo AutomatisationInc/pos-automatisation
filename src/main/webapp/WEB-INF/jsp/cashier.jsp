@@ -109,34 +109,34 @@
         <table class="dish-table">
             <tr>
                 <td>
-                    <input type="image" src="Sandwiches.jpg" class="dish-button" id=${dish.id}>
+                    <input type="image" src="/static/img/Sandwiches.jpg" class="dish-button" id=${dish.id}>
                     <p><strong>Royal Burger</strong></p>
                     <p>170g. / 200$</p>
                 </td>
                 <td>
-                    <input type="image" src="Sandwiches.jpg" class="dish-button" id=${dish.id}>
+                    <input type="image" src="/static/img/Sandwiches.jpg" class="dish-button" id=${dish.id}>
                     <p><strong>Royal Burger</strong></p>
                     <p>170g. / 200$</p>
                 </td>
                 <td>
-                    <input type="image" src="Sandwiches.jpg" class="dish-button" id="${dish.id}">
+                    <input type="image" src="/static/img/Sandwiches.jpg" class="dish-button" id="${dish.id}">
                     <p><strong>Royal Burger</strong></p>
                     <p>170g. / 200$</p>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <input type="image" src="Sandwiches.jpg" class="dish-button" id="${dish.id}">
+                    <input type="image" src="/static/img/Sandwiches.jpg" class="dish-button" id="${dish.id}">
                     <p><strong>Royal Burger</strong></p>
                     <p>170g. / 200$</p>
                 </td>
                 <td>
-                    <input type="image" src="Sandwiches.jpg" class="dish-button" id="${dish.id}">
+                    <input type="image" src="/static/img/Sandwiches.jpg" class="dish-button" id="${dish.id}">
                     <p><strong>Royal Burger</strong></p>
                     <p>170g. / 200$</p>
                 </td>
                 <td>
-                    <input type="image" src="Sandwiches.jpg" class="dish-button" id="${dish.id}">
+                    <input type="image" src="/static/img/Sandwiches.jpg" class="dish-button" id="${dish.id}">
                     <p><strong>Royal Burger</strong></p>
                     <p>170g. / 200$</p>
                 </td>

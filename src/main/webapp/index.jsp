@@ -7,7 +7,7 @@
     <title>Pos-Automatisation</title>
     <style>
         body {
-            background: url("static/img/start.jpg") center;
+            background: url("/static/img/start.jpg") center;
             background-size: cover;
             link: white;
         }
