@@ -16,45 +16,60 @@ import java.util.List;
 public class DishDaoImpl implements DishDao {
 
     @PersistenceContext
-    private EntityManager em;
+    private EntityManager entityManager;
 
     @Override
     public Dish save(Dish dish) {
-        return null;
+        entityManager.persist(dish);
+        return dish;
     }
 
     @Override
     public Dish update(Dish dish) {
-        return null;
+        entityManager.merge(dish);
+        return dish;
     }
 
     @Override
     public Dish saveOrUpdate(Dish dish) {
-        return null;
+        if (dish.getId() > 0) {
+            update(dish);
+        } else {
+            save(dish);
+        }
+        return dish;
     }
 
     @Override
     public void delete(long id) {
-
+        Dish dish = entityManager.find(Dish.class, id);
+        entityManager.remove(dish);
     }
 
     @Override
     public Dish findById(long id) {
-        return null;
+        return entityManager.find(Dish.class, id);
     }
 
     @Override
     public Dish findByName(String name) {
-        return null;
+
+        Dish dish = entityManager.createQuery("from Dish where name like: dishName", Dish.class)
+                .setParameter("dishName", name).getSingleResult();
+
+        return dish;
     }
 
     @Override
     public List<Dish> findByType(DishType type) {
-        return null;
+        List<Dish> dishList = entityManager.createQuery("from Dish where category like: dishType", Dish.class)
+                .setParameter("dishType", type.name()).getResultList();
+        return dishList;
     }
 
     @Override
     public List<Dish> findAllDish() {
-        return null;
+        List<Dish> dishList = entityManager.createQuery("from Dish", Dish.class).getResultList();
+        return dishList;
     }
 }

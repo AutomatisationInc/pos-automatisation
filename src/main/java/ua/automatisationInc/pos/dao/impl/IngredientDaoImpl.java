@@ -12,43 +12,59 @@ import java.util.List;
  * Created by PavelGrudina on 21.03.2017.
  */
 @Repository
-public class IngredientDaoImpl implements IngredientDao{
+public class IngredientDaoImpl implements IngredientDao {
 
     @PersistenceContext
-    private EntityManager em;
+    private EntityManager entityManager;
 
     @Override
     public Ingredient save(Ingredient ingredient) {
-        return null;
+        entityManager.persist(ingredient);
+        return ingredient;
     }
 
     @Override
     public Ingredient update(Ingredient ingredient) {
-        return null;
+        entityManager.merge(ingredient);
+        return ingredient;
     }
 
     @Override
     public Ingredient saveOrUpdate(Ingredient ingredient) {
-        return null;
+        if (ingredient.getId() > 0) {
+            update(ingredient);
+        } else {
+            save(ingredient);
+        }
+        return ingredient;
     }
 
     @Override
     public void delete(long id) {
-
+        Ingredient ingredient = entityManager.find(Ingredient.class, id);
+        entityManager.remove(ingredient);
     }
 
     @Override
     public Ingredient findByName(String name) {
-        return null;
+
+        Ingredient ingredient = entityManager.createQuery("from Ingredient where name like: ingName", Ingredient.class)
+                .setParameter("ingName", name).getSingleResult();
+
+        return ingredient;
     }
 
     @Override
     public Ingredient findById(long id) {
-        return null;
+
+        return entityManager.find(Ingredient.class, id);
+
     }
 
     @Override
     public List<Ingredient> findAll() {
-        return null;
+
+        return entityManager.createQuery("from Ingredient", Ingredient.class).getResultList();
+
     }
 }
