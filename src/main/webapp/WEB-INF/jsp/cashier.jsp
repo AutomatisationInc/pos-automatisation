@@ -7,6 +7,8 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<!DOCTYPE html>
 <html>
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
@@ -16,23 +18,68 @@
     <style>
         @import url('https://fonts.googleapis.com/css?family=Lobster');
         @import url('https://fonts.googleapis.com/css?family=Bitter');
+
         #header {
+            margin-top: -1px;
             border: 2px solid white;
             background: #f6ca47;
             text-align: center;
             border-bottom-right-radius: 15px;
             border-bottom-left-radius: 15px;
+            margin-bottom: -1px;
         }
+
         #header-cashier, #header-bill {
 
             font-family: Bitter, serif;
             font-size: x-large;
-            text-shadow:  1px 1px 1px black;
+            text-shadow: 1px 1px 1px black;
 
         }
+
         #corporation-name {
-            font-family: Lobster,cursive;
+            font-family: Lobster, cursive;
             font-size: xx-large;
+        }
+
+        #container {
+            margin: 0 auto; /* Выравнивание по центру */
+        }
+
+        #nav {
+            text-align: center;
+            background: darkgrey;
+            width: 20%; /* Ширина левой колонки */
+            float: left;
+        }
+
+        #aside {
+            background: darkgrey;
+            width: 30%; /* Ширина правой колонки */
+            float: right;
+        }
+
+        #content {
+            box-sizing: content-box;
+            padding-top: 15px;
+        }
+
+        .category-button {
+            border-radius: 5px;
+            width: 170px;
+            height: 120px;
+        }
+
+        .dish-button {
+            border-radius: 5px;
+            width: 200px;
+            height: 150px;
+        }
+
+        .dish-table {
+            text-align: center;
+            border-collapse: separate;
+            border-spacing: 40px 10px;
         }
     </style>
 </head>
@@ -44,5 +91,58 @@
         <td id="header-bill">Check №</td>
     </tr>
 </table>
+<div id="container">
+    <div id="nav">
+        <input type="image" src="static/img/Sandwiches.jpg" class="category-button" id="SENDWICH">
+        <p><strong>Sandwiches & Burgers</strong></p>
+        <input type="image" src="static/img/Snacks.jpg" class="category-button" id="SNACK">
+        <p><strong>Snacks</strong></p>
+        <input type="image" src="static/img/Sides.jpg" class="category-button" id="SIDES">
+        <p><strong>Sides</strong></p>
+        <input type="image" src="static/img/Salad.jpg" class="category-button" id="SALAD">
+        <p><strong>Salads</strong></p>
+        <input type="image" src="static/img/Dessert.jpg" class="category-button" id="DESSERT">
+        <p><strong>Desserts</strong></p>
+    </div>
+    <div id="aside">Правая колонка</div>
+    <div id="content">
+        <table class="dish-table">
+            <tr>
+                <td>
+                    <input type="image" src="Sandwiches.jpg" class="dish-button" id=${dish.id}>
+                    <p><strong>Royal Burger</strong></p>
+                    <p>170g. / 200$</p>
+                </td>
+                <td>
+                    <input type="image" src="Sandwiches.jpg" class="dish-button" id=${dish.id}>
+                    <p><strong>Royal Burger</strong></p>
+                    <p>170g. / 200$</p>
+                </td>
+                <td>
+                    <input type="image" src="Sandwiches.jpg" class="dish-button" id="${dish.id}">
+                    <p><strong>Royal Burger</strong></p>
+                    <p>170g. / 200$</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="image" src="Sandwiches.jpg" class="dish-button" id="${dish.id}">
+                    <p><strong>Royal Burger</strong></p>
+                    <p>170g. / 200$</p>
+                </td>
+                <td>
+                    <input type="image" src="Sandwiches.jpg" class="dish-button" id="${dish.id}">
+                    <p><strong>Royal Burger</strong></p>
+                    <p>170g. / 200$</p>
+                </td>
+                <td>
+                    <input type="image" src="Sandwiches.jpg" class="dish-button" id="${dish.id}">
+                    <p><strong>Royal Burger</strong></p>
+                    <p>170g. / 200$</p>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
 </body>
 </html>

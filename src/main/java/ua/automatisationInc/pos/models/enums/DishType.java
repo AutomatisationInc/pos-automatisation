@@ -4,8 +4,8 @@ package ua.automatisationInc.pos.models.enums;
  * Created by Евгений on 21.03.2017.
  */
 public enum DishType {
-    SENDWICH,
-    SNECK,
+    SANDWICH,
+    SNACK,
     SIDES,
     SALAD,
     DESSERT,
