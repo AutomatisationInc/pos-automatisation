@@ -16,36 +16,45 @@ import java.util.List;
 public class BillDaoImpl implements BillDao {
 
     @PersistenceContext
-    private EntityManager em;
+    private EntityManager entityManager;
 
     @Override
     public Bill save(Bill bill) {
-        return null;
+        entityManager.persist(bill);
+        return bill;
     }
 
 
     @Override
     public void delete(long id) {
-
+        Bill bill = entityManager.find(Bill.class, id);
+        entityManager.remove(bill);
     }
 
     @Override
     public void deleteByDate(Date date) {
+        List<Bill> billList = entityManager.createQuery("from Bill where date like: billDate", Bill.class)
+                .setParameter("billDate", date).getResultList();
+        for (Bill bill : billList) {
+            entityManager.remove(bill);
+        }
 
     }
 
     @Override
     public Bill findById(long billId) {
-        return null;
+        return entityManager.find(Bill.class, billId);
     }
 
     @Override
     public List<Bill> findAll() {
-        return null;
+        return entityManager.createQuery("from Bill", Bill.class).getResultList();
     }
 
     @Override
     public List<Bill> findByDate(Date date) {
-        return null;
+        List<Bill> billList = entityManager.createQuery("from Bill where date like: billDate", Bill.class)
+                .setParameter("billDate", date).getResultList();
+        return billList;
     }
 }
