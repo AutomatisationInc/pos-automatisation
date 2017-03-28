@@ -3,20 +3,27 @@ package ua.automatisationInc.pos;
 import ua.automatisationInc.pos.models.Dish;
 import ua.automatisationInc.pos.models.Ingredient;
 import ua.automatisationInc.pos.models.enums.DishType;
+import ua.automatisationInc.pos.services.CashierService;
+import ua.automatisationInc.pos.services.impl.CashierServiceImpl;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by Man on 23.03.2017.
  */
 public class testMain {
     public static void main(String[] args) {
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("pos-automatisation");
-        EntityManager manager = factory.createEntityManager();
-        manager.getTransaction().begin();
+        Dish royalBurger = initRoyalBurger();
+
+        CashierService cashierService= new CashierServiceImpl();
+        List<DishType> dishTypes = cashierService.getDishTypes();
+        for (DishType dishType : dishTypes) {
+            System.out.println(dishType);
+        }
+    }
+
+    private static Dish initRoyalBurger() {
         Dish royalBurger = new Dish();
         Ingredient breed = new Ingredient();
         Ingredient cheese = new Ingredient();
@@ -32,7 +39,7 @@ public class testMain {
         cheese.setName("Cheese");
         cheese.setWeight(200);
         cheese.setDate(new Date());
-       cheese.getDishes().add(royalBurger);
+        cheese.getDishes().add(royalBurger);
         tomato.setName("Tomato");
         tomato.setWeight(200);
         tomato.setDate(new Date());
@@ -48,7 +55,7 @@ public class testMain {
         salad.setName("Salad");
         salad.setWeight(200);
         salad.setDate(new Date());
-       salad.getDishes().add(royalBurger);
+        salad.getDishes().add(royalBurger);
         royalBurger.setCategory(DishType.SANDWICH);
         royalBurger.setName("Royal Burger");
         royalBurger.setPrice(400);
@@ -57,9 +64,6 @@ public class testMain {
         royalBurger.getIngredients().add(beef);
         royalBurger.getIngredients().add(cheese);
         royalBurger.getIngredients().add(tomato);
-        manager.persist(royalBurger);
-        manager.getTransaction().commit();
-        manager.close();
-        factory.close();
+        return royalBurger;
     }
 }

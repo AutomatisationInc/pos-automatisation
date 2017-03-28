@@ -12,7 +12,6 @@
 <html>
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-
     <meta charset="UTF-8">
     <title>Cashier</title>
     <style>
@@ -93,50 +92,27 @@
 </table>
 <div id="container">
     <div id="nav">
-        <input type="image" src="static/img/Sandwiches.jpg" class="category-button" id="SENDWICH">
-        <p><strong>Sandwiches & Burgers</strong></p>
-        <input type="image" src="static/img/Snacks.jpg" class="category-button" id="SNACK">
-        <p><strong>Snacks</strong></p>
-        <input type="image" src="static/img/Sides.jpg" class="category-button" id="SIDES">
-        <p><strong>Sides</strong></p>
-        <input type="image" src="static/img/Salad.jpg" class="category-button" id="SALAD">
-        <p><strong>Salads</strong></p>
-        <input type="image" src="static/img/Dessert.jpg" class="category-button" id="DESSERT">
-        <p><strong>Desserts</strong></p>
-    </div>
+        <c:forEach items="${dishTypes}" var="dishType" varStatus="count">
+        <input type="image" src="/static/img/${dishType}jpg" class="category-button" id="${dishType}">
+        <p><strong>${dishType}</strong></p>
+        </c:forEach>
+            </div>
     <div id="aside">Правая колонка</div>
     <div id="content">
         <table class="dish-table">
             <tr>
                 <td>
-                    <input type="image" src="/static/img/Sandwiches.jpg" class="dish-button" id=${dish.id}>
+                    <input type="image" src="/static/img/SANDWICH.jpg" class="dish-button" id=${dish.id}>
                     <p><strong>Royal Burger</strong></p>
                     <p>170g. / 200$</p>
                 </td>
                 <td>
-                    <input type="image" src="/static/img/Sandwiches.jpg" class="dish-button" id=${dish.id}>
+                    <input type="image" src="/static/img/SANDWICH.jpg" class="dish-button" id=${dish.id}>
                     <p><strong>Royal Burger</strong></p>
                     <p>170g. / 200$</p>
                 </td>
                 <td>
-                    <input type="image" src="/static/img/Sandwiches.jpg" class="dish-button" id="${dish.id}">
-                    <p><strong>Royal Burger</strong></p>
-                    <p>170g. / 200$</p>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <input type="image" src="/static/img/Sandwiches.jpg" class="dish-button" id="${dish.id}">
-                    <p><strong>Royal Burger</strong></p>
-                    <p>170g. / 200$</p>
-                </td>
-                <td>
-                    <input type="image" src="/static/img/Sandwiches.jpg" class="dish-button" id="${dish.id}">
-                    <p><strong>Royal Burger</strong></p>
-                    <p>170g. / 200$</p>
-                </td>
-                <td>
-                    <input type="image" src="/static/img/Sandwiches.jpg" class="dish-button" id="${dish.id}">
+                    <input type="image" src="/static/img/SANDWICH.jpg" class="dish-button" id="${dish.id}">
                     <p><strong>Royal Burger</strong></p>
                     <p>170g. / 200$</p>
                 </td>
