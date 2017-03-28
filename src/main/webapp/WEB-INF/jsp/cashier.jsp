@@ -11,6 +11,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <script src="../../static/js/cashier.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <meta charset="UTF-8">
     <title>Cashier</title>
@@ -91,33 +92,21 @@
     </tr>
 </table>
 <div id="container">
-    <div id="nav">
-        <c:forEach items= "${dishTypes}" var="dishType" varStatus="count">
+    <div id="nav" class="col-md-2">
+        <c:forEach items="${dishTypes}" var="dishType" varStatus="count">
             <input type="image" src="/img/${dishType}.jpg" class="category-button" id="${dishType}">
             <p><strong>${dishType}</strong></p>
         </c:forEach>
     </div>
     <div id="aside">Правая колонка</div>
-    <div id="content">
-        <table class="dish-table">
-            <tr>
-                <td>
-                    <input type="image" src="/img/SANDWICH.jpg" class="dish-button" id=${dish.id}>
-                    <p><strong>Royal Burger</strong></p>
-                    <p>170g. / 200$</p>
-                </td>
-                <td>
-                    <input type="image" src="/img/SANDWICH.jpg" class="dish-button" id=${dish.id}>
-                    <p><strong>Royal Burger</strong></p>
-                    <p>170g. / 200$</p>
-                </td>
-                <td>
-                    <input type="image" src="/img/SANDWICH.jpg" class="dish-button" id="${dish.id}">
-                    <p><strong>Royal Burger</strong></p>
-                    <p>170g. / 200$</p>
-                </td>
-            </tr>
-        </table>
+    <div id="content" class="col-md-7">
+        <c:forEach items="${dishesByType}" var="dish" varStatus="count">
+            <div class="col-md-2">
+                <input type="image" src="${dish.url}" class="dish-button" id=${dish.name}>
+                <p><strong>${dish.name}</strong></p>
+                <p>${dish.weight}g. / ${dish.price}$</p>
+            </div>
+        </c:forEach>
     </div>
 </div>
 </body>

@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import ua.automatisationInc.pos.models.enums.DishType;
 import ua.automatisationInc.pos.services.CashierService;
 
@@ -23,7 +24,15 @@ public class CashierController {
     public String getCashierPage(Model model) {
         List<DishType> dishTypes = cashierService.getDishTypes();
         model.addAttribute("dishTypes", dishTypes);
+        model.addAttribute("dishesByType", cashierService.getDishesByType(DishType.SANDWICH));
         return "/cashier";
     }
 
+    @RequestMapping(path = "/menu", method = RequestMethod.GET)
+    public String getMenuByType(@RequestParam(name="category")String category, Model model) {
+        List<DishType> dishTypes = cashierService.getDishTypes();
+        model.addAttribute("dishTypes", dishTypes);
+        model.addAttribute("dishesByType", cashierService.getDishesByType(DishType.SANDWICH));
+        return "/cashier";
+    }
 }
