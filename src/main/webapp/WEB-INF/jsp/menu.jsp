@@ -12,7 +12,7 @@
 </head>
 <body>
 <div id="content" class="col-md-7">
-    <c:forEach items="${dishesByType}" var="dish" varStatus="count">
+    <c:forEach items="${}" var="dish" varStatus="count">
         <div class="col-md-2">
             <input type="image" src="${dish.url}" class="dish-button" id=${dish.name}>
             <p><strong>${dish.name}</strong></p>

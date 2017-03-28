@@ -48,7 +48,7 @@
         #nav {
             text-align: center;
             background: darkgrey;
-            width: 20%; /* Ширина левой колонки */
+            width: 15%; /* Ширина левой колонки */
             float: left;
         }
 
@@ -59,26 +59,27 @@
         }
 
         #content {
-            box-sizing: content-box;
             padding-top: 15px;
+            text-align: center;
+            width: 70%;
         }
 
         .category-button {
             border-radius: 5px;
-            width: 170px;
-            height: 120px;
+            width: 110px;
+            height: 60px;
         }
 
         .dish-button {
             border-radius: 5px;
-            width: 200px;
-            height: 150px;
-        }
-
-        .dish-table {
+            width: 150px;
+            height: 110px;
             text-align: center;
-            border-collapse: separate;
-            border-spacing: 40px 10px;
+        }
+        #check {
+            background: white;
+            position: fixed;
+            width:30% ;
         }
     </style>
 </head>
@@ -97,27 +98,31 @@
             <p><strong>${dishType}</strong></p>
         </c:forEach>
     </div>
-    <div id="aside">Правая колонка</div>
-    <div id="content">
-        <table class="dish-table">
-            <tr>
-                <td>
-                    <input type="image" src="/static/img/SANDWICH.jpg" class="dish-button" id=${dish.id}>
-                    <p><strong>Royal Burger</strong></p>
-                    <p>170g. / 200$</p>
-                </td>
-                <td>
-                    <input type="image" src="/static/img/SANDWICH.jpg" class="dish-button" id=${dish.id}>
-                    <p><strong>Royal Burger</strong></p>
-                    <p>170g. / 200$</p>
-                </td>
-                <td>
-                    <input type="image" src="/static/img/SANDWICH.jpg" class="dish-button" id="${dish.id}">
-                    <p><strong>Royal Burger</strong></p>
-                    <p>170g. / 200$</p>
-                </td>
-            </tr>
-        </table>
+    <div id="aside">
+        <div id="check">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Weight</th>
+                    <th>Price</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    <div id="content" class="row">
+        <c:forEach items="${sandwiches}" var="dish" varStatus="count">
+            <div class="col-md-2">
+                <input type="image" src="${dish.url}" class="dish-button" id=${dish.name}>
+                <p><strong>${dish.name}</strong></p>
+                <p>${dish.weight}g. / ${dish.price}$</p>
+            </div>
+        </c:forEach>
     </div>
 </div>
 </body>
