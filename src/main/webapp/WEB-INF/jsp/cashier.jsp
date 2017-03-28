@@ -93,7 +93,7 @@
 <div id="container">
     <div id="nav">
         <c:forEach items= "${dishTypes}" var="dishType" varStatus="count">
-            <input type="image" src="/img/${dishType}.jpg" class="category-button" id="${dishType}">
+            <input type="image" src="/static/img/${dishType}.jpg" class="category-button" id="${dishType}">
             <p><strong>${dishType}</strong></p>
         </c:forEach>
     </div>
@@ -102,17 +102,17 @@
         <table class="dish-table">
             <tr>
                 <td>
-                    <input type="image" src="/img/SANDWICH.jpg" class="dish-button" id=${dish.id}>
+                    <input type="image" src="/static/img/SANDWICH.jpg" class="dish-button" id=${dish.id}>
                     <p><strong>Royal Burger</strong></p>
                     <p>170g. / 200$</p>
                 </td>
                 <td>
-                    <input type="image" src="/img/SANDWICH.jpg" class="dish-button" id=${dish.id}>
+                    <input type="image" src="/static/img/SANDWICH.jpg" class="dish-button" id=${dish.id}>
                     <p><strong>Royal Burger</strong></p>
                     <p>170g. / 200$</p>
                 </td>
                 <td>
-                    <input type="image" src="/img/SANDWICH.jpg" class="dish-button" id="${dish.id}">
+                    <input type="image" src="/static/img/SANDWICH.jpg" class="dish-button" id="${dish.id}">
                     <p><strong>Royal Burger</strong></p>
                     <p>170g. / 200$</p>
                 </td>
