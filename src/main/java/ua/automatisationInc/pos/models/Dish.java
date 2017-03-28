@@ -28,6 +28,8 @@ public class Dish {
 
     private double weight;
 
+    private String url;
+
     @ManyToMany (cascade = CascadeType.PERSIST,fetch = FetchType.EAGER)
     private List<Ingredient> ingredients = new ArrayList<>();
 
@@ -93,6 +95,13 @@ public class Dish {
         this.ingredients = ingredients;
     }
 
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
     @Override
     public boolean equals(Object o) {
