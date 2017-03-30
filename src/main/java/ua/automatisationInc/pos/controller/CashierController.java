@@ -16,7 +16,6 @@ import java.util.List;
  * Created by Man on 21.03.2017.
  */
 @Controller
-@RequestMapping("") // В jsp должна быть папка cashier, в которой будут 2 jsp: с выбранным типом блюда и без.
 public class CashierController {
     @Autowired
     private CashierService cashierService;
@@ -31,9 +30,9 @@ public class CashierController {
     }
 
     @RequestMapping(path = "/menu", method = RequestMethod.GET)
-    public String getMenuByType(@RequestParam(name="category")String category, Model model) {
-        List<DishType> dishTypes = cashierService.getDishTypes();
-        model.addAttribute("dishTypes", dishTypes);
-        return "/cashier";
+    public String getMenuByType(@RequestParam(name = "category") String category, Model model) {
+        List<Dish> dishes = cashierService.getDishesByType(DishType.valueOf(category));
+        model.addAttribute("dishes", dishes);
+        return "/menu";
     }
 }

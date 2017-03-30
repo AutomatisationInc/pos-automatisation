@@ -11,6 +11,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="../../static/js/cashier.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <meta charset="UTF-8">
     <title>Cashier</title>
@@ -76,11 +78,25 @@
             height: 110px;
             text-align: center;
         }
-        #check {
+        .table-hover {
             background: white;
-            position: fixed;
-            width:30% ;
         }
+        #pay-button {
+            width: 150px;
+            height: 40px;
+            float: right;
+        }
+        #bonus-button{
+            width: 70px;
+            height: 40px;
+            text-transform: uppercase;
+        }
+        #function-button {
+            width: 70px;
+            height: 40px;
+
+        }
+
     </style>
 </head>
 <body>
@@ -94,12 +110,11 @@
 <div id="container">
     <div id="nav">
         <c:forEach items= "${dishTypes}" var="dishType" varStatus="count">
-            <input type="image" src="/static/img/${dishType}.jpg" class="category-button" id="${dishType}">
+            <input type="image" src="/static/img/${dishType}.jpg" class="category-button" id="${dishType}" value="${dishType}" name="dish">
             <p><strong>${dishType}</strong></p>
         </c:forEach>
     </div>
     <div id="aside">
-        <div id="check">
             <table class="table table-hover">
                 <thead>
                 <tr>
@@ -112,8 +127,10 @@
 
                 </tbody>
             </table>
-        </div>
 
+        <button type="submit" class="btn btn-default" id="function-button"><strong>...</strong></button>
+        <button type="submit" class="btn btn-default" id="bonus-button"><strong>%</strong></button>
+        <button type="submit" class="btn btn-success" id="pay-button"><strong>Pay</strong></button>
     </div>
     <div id="content" class="row">
         <c:forEach items="${sandwiches}" var="dish" varStatus="count">
