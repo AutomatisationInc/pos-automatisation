@@ -61,7 +61,8 @@
         }
 
         #content {
-            padding-top: 15px;
+            padding-top: 30px;
+            padding-left: 37px;
             text-align: center;
             width: 70%;
         }
@@ -110,12 +111,12 @@
 <div id="container">
     <div id="nav">
         <c:forEach items= "${dishTypes}" var="dishType" varStatus="count">
-            <input type="image" src="/static/img/${dishType}.jpg" class="category-button" id="${dishType}" value="${dishType}" name="dish">
+            <input type="image" src="/static/img/${dishType}.jpg" class="category-button" id="${dishType}" value=${dishType}>
             <p><strong>${dishType}</strong></p>
         </c:forEach>
     </div>
     <div id="aside">
-            <table class="table table-hover">
+            <table class="table table-hover" id="check">
                 <thead>
                 <tr>
                     <th>Title</th>
@@ -135,7 +136,7 @@
     <div id="content" class="row">
         <c:forEach items="${sandwiches}" var="dish" varStatus="count">
             <div class="col-md-2">
-                <input type="image" src="${dish.url}" class="dish-button" id=${dish.name}>
+                <input type="image" src="${dish.url}" class="dish-button" name=${dish.name}, id=${dish.id}>
                 <p><strong>${dish.name}</strong></p>
                 <p>${dish.weight}g. / ${dish.price}$</p>
             </div>

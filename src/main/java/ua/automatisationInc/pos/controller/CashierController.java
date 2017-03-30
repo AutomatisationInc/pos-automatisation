@@ -35,4 +35,10 @@ public class CashierController {
         model.addAttribute("dishes", dishes);
         return "/menu";
     }
+    @RequestMapping(path = "/check", method = RequestMethod.GET)
+    public String chooseDish(@RequestParam(name="dishId") String dishId, Model model) {
+        Dish dish = cashierService.getDishById(Long.parseLong(dishId));
+        model.addAttribute("dish",dish);
+        return "/check";
+    }
 }
