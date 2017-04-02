@@ -62,8 +62,8 @@ public class DishDaoImpl implements DishDao {
 
     @Override
     public List<Dish> findByType(DishType type) {
-        List<Dish> dishList = entityManager.createQuery("from Dish where category like: dishType", Dish.class)
-                .setParameter("dishType", type.name()).getResultList();
+        List<Dish> dishList = entityManager.createQuery("from Dish dish where dish.category = :type", Dish.class)
+                .setParameter("type", type).getResultList();
         return dishList;
     }
 

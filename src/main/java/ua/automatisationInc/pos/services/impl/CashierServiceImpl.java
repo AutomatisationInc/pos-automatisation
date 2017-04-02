@@ -125,4 +125,10 @@ public class CashierServiceImpl implements CashierService {
         dishTypes.addAll(Arrays.asList(DishType.values()));
         return dishTypes;
     }
+
+    @Override
+    @Transactional
+    public Dish getDishById(long dishId) {
+        return dishDao.findById(dishId);
+    }
 }

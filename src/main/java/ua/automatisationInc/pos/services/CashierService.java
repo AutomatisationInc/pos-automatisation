@@ -36,4 +36,6 @@ public interface CashierService {
     List<Dish> getDishesByType(DishType type);
 
     List<DishType> getDishTypes();
+
+    Dish getDishById(long dishId);
 }

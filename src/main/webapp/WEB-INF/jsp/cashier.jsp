@@ -11,6 +11,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="../../static/js/cashier.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <meta charset="UTF-8">
     <title>Cashier</title>
@@ -48,7 +50,7 @@
         #nav {
             text-align: center;
             background: darkgrey;
-            width: 20%; /* Ширина левой колонки */
+            width: 15%; /* Ширина левой колонки */
             float: left;
         }
 
@@ -59,27 +61,43 @@
         }
 
         #content {
-            box-sizing: content-box;
-            padding-top: 15px;
+            padding-top: 30px;
+            padding-left: 37px;
+            text-align: center;
+            width: 70%;
         }
 
         .category-button {
             border-radius: 5px;
-            width: 170px;
-            height: 120px;
+            width: 110px;
+            height: 60px;
         }
 
         .dish-button {
             border-radius: 5px;
-            width: 200px;
-            height: 150px;
+            width: 150px;
+            height: 110px;
+            text-align: center;
+        }
+        .table-hover {
+            background: white;
+        }
+        #pay-button {
+            width: 150px;
+            height: 40px;
+            float: right;
+        }
+        #bonus-button{
+            width: 70px;
+            height: 40px;
+            text-transform: uppercase;
+        }
+        #function-button {
+            width: 70px;
+            height: 40px;
+
         }
 
-        .dish-table {
-            text-align: center;
-            border-collapse: separate;
-            border-spacing: 40px 10px;
-        }
     </style>
 </head>
 <body>
@@ -93,31 +111,36 @@
 <div id="container">
     <div id="nav">
         <c:forEach items= "${dishTypes}" var="dishType" varStatus="count">
-            <input type="image" src="/static/img/${dishType}.jpg" class="category-button" id="${dishType}">
+            <input type="image" src="/static/img/${dishType}.jpg" class="category-button" id="${dishType}" value=${dishType}>
             <p><strong>${dishType}</strong></p>
         </c:forEach>
     </div>
-    <div id="aside">Правая колонка</div>
-    <div id="content">
-        <table class="dish-table">
-            <tr>
-                <td>
-                    <input type="image" src="/static/img/SANDWICH.jpg" class="dish-button" id=${dish.id}>
-                    <p><strong>Royal Burger</strong></p>
-                    <p>170g. / 200$</p>
-                </td>
-                <td>
-                    <input type="image" src="/static/img/SANDWICH.jpg" class="dish-button" id=${dish.id}>
-                    <p><strong>Royal Burger</strong></p>
-                    <p>170g. / 200$</p>
-                </td>
-                <td>
-                    <input type="image" src="/static/img/SANDWICH.jpg" class="dish-button" id="${dish.id}">
-                    <p><strong>Royal Burger</strong></p>
-                    <p>170g. / 200$</p>
-                </td>
-            </tr>
-        </table>
+    <div id="aside">
+            <table class="table table-hover" id="check">
+                <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Weight</th>
+                    <th>Price</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+
+        <button type="submit" class="btn btn-default" id="function-button"><strong>...</strong></button>
+        <button type="submit" class="btn btn-default" id="bonus-button"><strong>%</strong></button>
+        <button type="submit" class="btn btn-success" id="pay-button"><strong>Pay</strong></button>
+    </div>
+    <div id="content" class="row">
+        <c:forEach items="${sandwiches}" var="dish" varStatus="count">
+            <div class="col-md-2">
+                <input type="image" src="${dish.url}" class="dish-button" name=${dish.name}, id=${dish.id}>
+                <p><strong>${dish.name}</strong></p>
+                <p>${dish.weight}g. / ${dish.price}$</p>
+            </div>
+        </c:forEach>
     </div>
 </div>
 </body>
