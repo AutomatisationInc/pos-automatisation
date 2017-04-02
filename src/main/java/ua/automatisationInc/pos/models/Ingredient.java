@@ -13,7 +13,7 @@ import java.util.List;
 public class Ingredient {
 
     @Id
-    @GeneratedValue (strategy = GenerationType.AUTO)
+    @GeneratedValue (strategy = GenerationType.SEQUENCE)
     @Column (name = "id", nullable = false, unique = true)
     private long id;
 
