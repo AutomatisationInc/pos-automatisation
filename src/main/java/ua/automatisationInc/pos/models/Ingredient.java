@@ -1,6 +1,7 @@
 package ua.automatisationInc.pos.models;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -22,12 +23,12 @@ public class Ingredient {
 
     private double weight;
 
-    private Date date;
+    private LocalDate date;
 
     @ManyToMany (cascade = CascadeType.PERSIST,fetch = FetchType.EAGER)
     private List<Dish> dishes = new ArrayList<>();
 
-    public Ingredient(String name, double weight, Date date, List<Dish> dishes) {
+    public Ingredient(String name, double weight, LocalDate date, List<Dish> dishes) {
         this.name = name;
         this.weight = weight;
         this.date = date;
@@ -63,11 +64,11 @@ public class Ingredient {
         this.weight = weight;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
     public void setDishes(List<Dish> dishes) {

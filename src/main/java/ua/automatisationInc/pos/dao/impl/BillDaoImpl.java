@@ -6,6 +6,7 @@ import ua.automatisationInc.pos.models.Bill;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -32,7 +33,7 @@ public class BillDaoImpl implements BillDao {
     }
 
     @Override
-    public void deleteByDate(Date date) {
+    public void deleteByDate(LocalDate date) {
         List<Bill> billList = entityManager.createQuery("from Bill where date like: billDate", Bill.class)
                 .setParameter("billDate", date).getResultList();
         for (Bill bill : billList) {
@@ -52,7 +53,7 @@ public class BillDaoImpl implements BillDao {
     }
 
     @Override
-    public List<Bill> findByDate(Date date) {
+    public List<Bill> findByDate(LocalDate date) {
         List<Bill> billList = entityManager.createQuery("from Bill where date like: billDate", Bill.class)
                 .setParameter("billDate", date).getResultList();
         return billList;

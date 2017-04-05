@@ -52,7 +52,7 @@
     <form action="" method="get">
         <input type="submit" class="button" id="kitchen-button" value="KITCHEN"/>
     </form>
-    <form action="" method="get">
+    <form action="/administrator" method="get">
         <input type="submit" class="button" id="admin-button" value="ADMINISTRATION"/>
     </form>
 </div>
