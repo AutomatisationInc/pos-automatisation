@@ -1,7 +1,9 @@
 package ua.automatisationInc.pos.dao;
 
 import ua.automatisationInc.pos.models.Bill;
+import ua.automatisationInc.pos.models.enums.BillStatus;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -14,11 +16,13 @@ public interface BillDao {
 
     void delete(long id);
 
-    void deleteByDate(Date date);
+    void deleteByDate(LocalDate date);
 
     Bill findById(long billId);
 
     List<Bill> findAll();
 
-    List<Bill> findByDate(Date date);
+    List<Bill> findByDate(LocalDate date);
+
+    List<Bill> findByStatus (BillStatus status);
 }

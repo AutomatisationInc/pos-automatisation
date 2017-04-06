@@ -3,9 +3,11 @@ package ua.automatisationInc.pos.dao.impl;
 import org.springframework.stereotype.Repository;
 import ua.automatisationInc.pos.dao.BillDao;
 import ua.automatisationInc.pos.models.Bill;
+import ua.automatisationInc.pos.models.enums.BillStatus;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -32,7 +34,7 @@ public class BillDaoImpl implements BillDao {
     }
 
     @Override
-    public void deleteByDate(Date date) {
+    public void deleteByDate(LocalDate date) {
         List<Bill> billList = entityManager.createQuery("from Bill where date like: billDate", Bill.class)
                 .setParameter("billDate", date).getResultList();
         for (Bill bill : billList) {
@@ -52,9 +54,16 @@ public class BillDaoImpl implements BillDao {
     }
 
     @Override
-    public List<Bill> findByDate(Date date) {
+    public List<Bill> findByDate(LocalDate date) {
         List<Bill> billList = entityManager.createQuery("from Bill where date like: billDate", Bill.class)
                 .setParameter("billDate", date).getResultList();
+        return billList;
+    }
+
+    @Override
+    public List<Bill> findByStatus(BillStatus status) {
+        List<Bill> billList = entityManager.createQuery("from Bill where status like: billStatus", Bill.class)
+                .setParameter("billStatus", status).getResultList();
         return billList;
     }
 }

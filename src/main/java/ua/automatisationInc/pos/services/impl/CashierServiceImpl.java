@@ -11,6 +11,7 @@ import ua.automatisationInc.pos.models.Dish;
 import ua.automatisationInc.pos.models.enums.DishType;
 import ua.automatisationInc.pos.services.CashierService;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -96,7 +97,7 @@ public class CashierServiceImpl implements CashierService {
 
     @Override
     @Transactional
-    public List<Bill> getAllBillsByToDay(Date date) {
+    public List<Bill> getAllBillsByToDay(LocalDate date) {
         return billDao.findByDate(date);
     }
 

@@ -4,6 +4,7 @@ import ua.automatisationInc.pos.models.Bill;
 import ua.automatisationInc.pos.models.Dish;
 import ua.automatisationInc.pos.models.enums.DishType;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -27,7 +28,7 @@ public interface CashierService {
 
     Bill getBill(long billId);
 
-    List<Bill> getAllBillsByToDay(Date date);
+    List<Bill> getAllBillsByToDay(LocalDate date);
 
     void postToKitchen(Bill bill);
 

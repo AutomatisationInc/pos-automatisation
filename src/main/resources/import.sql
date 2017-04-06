@@ -6,11 +6,11 @@ INSERT INTO PUBLIC .DISHES (ID,NAME,CATEGORY,PRICE,WEIGHT,URL) VALUES (9,'Sprite
 INSERT INTO PUBLIC .DISHES (ID,NAME,CATEGORY,PRICE,WEIGHT,URL) VALUES (10,'Fanta','DRINK',200,10,'http://ffukraine.com/wp-content/uploads/2013/07/bulka_s_kunjutom-510x400.jpg');
 INSERT INTO PUBLIC .DISHES (ID,NAME,CATEGORY,PRICE,WEIGHT,URL) VALUES (11,'Mirinda','DRINK',200,10,'http://ffukraine.com/wp-content/uploads/2013/07/bulka_s_kunjutom-510x400.jpg');
 INSERT INTO PUBLIC .DISHES (ID,NAME,CATEGORY,PRICE,WEIGHT,URL) VALUES (12,'Pepsi','DRINK',200,10,'http://ffukraine.com/wp-content/uploads/2013/07/bulka_s_kunjutom-510x400.jpg');
-INSERT INTO PUBLIC .INGREDIENTS (ID,NAME,WEIGHT,DATE) VALUES (1,'Bun',200,'2009-06-04 18:24:54');
-INSERT INTO PUBLIC .Ingredients (ID, NAME, WEIGHT, DATE ) VALUES (2, 'Meat', 200,'2009-06-04 18:24:54');
-INSERT INTO PUBLIC .Ingredients (ID, NAME, WEIGHT) VALUES (3, 'Onion', 12,'2009-06-04 18:24:54');
-INSERT INTO PUBLIC .Ingredients (ID, NAME, WEIGHT) VALUES (4, 'Cucumber', 25,'2009-06-04 18:24:54');
-INSERT INTO PUBLIC .Ingredients (ID, NAME, WEIGHT) VALUES (5, 'Sauce', 10,'2009-06-04 18:24:54');
+INSERT INTO PUBLIC .INGREDIENTS (ID,NAME,WEIGHT,DATE) VALUES (1,'Bun',200,'2009-06-04');
+INSERT INTO PUBLIC .Ingredients (ID, NAME, WEIGHT, DATE ) VALUES (2, 'Meat', 200,'2009-06-04');
+INSERT INTO PUBLIC .Ingredients (ID, NAME, WEIGHT) VALUES (3, 'Onion', 12,'2009-06-04');
+INSERT INTO PUBLIC .Ingredients (ID, NAME, WEIGHT) VALUES (4, 'Cucumber', 25,'2009-06-04');
+INSERT INTO PUBLIC .Ingredients (ID, NAME, WEIGHT) VALUES (5, 'Sauce', 10,'2009-06-04');
 INSERT INTO PUBLIC .Dishes (ID, CATEGORY, NAME, PRICE, WEIGHT,URL) VALUES (1, 'SANDWICH', 'Royal Burger', 200, 10,'http://ffukraine.com/wp-content/uploads/2013/07/bulka_s_kunjutom-510x400.jpg');
 INSERT INTO PUBLIC .Dishes (ID, CATEGORY, NAME, PRICE, WEIGHT,URL) VALUES (2, 'SANDWICH', 'BigMac', 300, 50,'http://ffukraine.com/wp-content/uploads/2013/07/bulka_s_kunjutom-510x400.jpg');
 INSERT INTO PUBLIC .Dishes (ID, CATEGORY, NAME, PRICE, WEIGHT,URL) VALUES (3 ,'SANDWICH', 'BiberBurger', 100, 10,'http://ffukraine.com/wp-content/uploads/2013/07/bulka_s_kunjutom-510x400.jpg');
