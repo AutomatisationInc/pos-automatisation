@@ -1,6 +1,7 @@
 package ua.automatisationInc.pos.models;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -26,13 +27,13 @@ public class Bill {
 
     private int number;
 
-    private Date date;
+    private LocalDate date;
 
     @OneToMany (fetch = FetchType.EAGER)
     private List<Dish> dishList;
 
 
-    public Bill(long id, double bonus, double price, String comment, int number, Date date, List<Dish> dishList) {
+    public Bill(long id, double bonus, double price, String comment, int number, LocalDate date, List<Dish> dishList) {
         this.id = id;
         this.bonus = bonus;
         this.price = price;
@@ -86,11 +87,11 @@ public class Bill {
         this.number = number;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
