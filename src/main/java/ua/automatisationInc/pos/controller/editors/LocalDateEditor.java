@@ -9,6 +9,8 @@ import java.time.format.DateTimeFormatter;
  */
 public class LocalDateEditor extends PropertyEditorSupport {
 
+    private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd, MM, yyyy");
+
     @Override
     public String getAsText() {
         Object value = getValue();
@@ -16,7 +18,7 @@ public class LocalDateEditor extends PropertyEditorSupport {
             return "";
         } else {
             LocalDate localDate = (LocalDate) value;
-            return localDate.format(DateTimeFormatter.ofPattern("dd, MM, yyyy"));
+            return localDate.format(formatter);
         }
     }
 
@@ -29,7 +31,7 @@ public class LocalDateEditor extends PropertyEditorSupport {
                 if ("".equals(value)) {
                     setValue(null);
                 } else {
-                    LocalDate result = LocalDate.parse(text, DateTimeFormatter.ofPattern("dd, MM, yyyy"));
+                    LocalDate result = LocalDate.parse(text, formatter);
                     setValue(result);
                 }
             }

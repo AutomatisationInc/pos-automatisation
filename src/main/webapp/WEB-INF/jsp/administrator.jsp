@@ -31,12 +31,14 @@
             font-family: Bitter, serif;
             font-size: x-large;
             text-shadow: 1px 1px 1px black;
+            width: 50%;
 
         }
 
         #corporation-name {
             font-family: Lobster, cursive;
             font-size: xx-large;
+            width: 50%;
         }
 
         #container {
