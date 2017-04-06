@@ -27,6 +27,7 @@ public interface AdministratorService {
 
     void deleteDishById (long id);
 
+// возвращает сумму по всем DONE счетам за определенную дату
     double billSumByDate (LocalDate date);
 
 

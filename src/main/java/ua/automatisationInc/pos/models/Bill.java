@@ -1,5 +1,7 @@
 package ua.automatisationInc.pos.models;
 
+import ua.automatisationInc.pos.models.enums.BillStatus;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Date;
@@ -28,6 +30,9 @@ public class Bill {
     private int number;
 
     private LocalDate date;
+
+    @Enumerated(EnumType.STRING)
+    private BillStatus status;
 
     @OneToMany (fetch = FetchType.EAGER)
     private List<Dish> dishList;
@@ -109,6 +114,14 @@ public class Bill {
 
     public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
+    }
+
+    public BillStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(BillStatus status) {
+        this.status = status;
     }
 
     @Override

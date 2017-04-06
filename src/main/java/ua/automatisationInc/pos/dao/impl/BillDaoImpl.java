@@ -3,6 +3,7 @@ package ua.automatisationInc.pos.dao.impl;
 import org.springframework.stereotype.Repository;
 import ua.automatisationInc.pos.dao.BillDao;
 import ua.automatisationInc.pos.models.Bill;
+import ua.automatisationInc.pos.models.enums.BillStatus;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -56,6 +57,13 @@ public class BillDaoImpl implements BillDao {
     public List<Bill> findByDate(LocalDate date) {
         List<Bill> billList = entityManager.createQuery("from Bill where date like: billDate", Bill.class)
                 .setParameter("billDate", date).getResultList();
+        return billList;
+    }
+
+    @Override
+    public List<Bill> findByStatus(BillStatus status) {
+        List<Bill> billList = entityManager.createQuery("from Bill where status like: billStatus", Bill.class)
+                .setParameter("billStatus", status).getResultList();
         return billList;
     }
 }

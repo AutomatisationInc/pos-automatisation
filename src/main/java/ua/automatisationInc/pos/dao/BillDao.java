@@ -1,6 +1,7 @@
 package ua.automatisationInc.pos.dao;
 
 import ua.automatisationInc.pos.models.Bill;
+import ua.automatisationInc.pos.models.enums.BillStatus;
 
 import java.time.LocalDate;
 import java.util.Date;
@@ -22,4 +23,6 @@ public interface BillDao {
     List<Bill> findAll();
 
     List<Bill> findByDate(LocalDate date);
+
+    List<Bill> findByStatus (BillStatus status);
 }
