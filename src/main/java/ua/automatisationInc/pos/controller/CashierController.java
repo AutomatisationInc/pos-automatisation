@@ -17,6 +17,7 @@ import java.util.List;
 /**
  * Created by Man on 21.03.2017.
  */
+
 @Controller
 public class CashierController {
     @Autowired

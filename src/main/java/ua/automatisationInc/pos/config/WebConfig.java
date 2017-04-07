@@ -15,6 +15,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 /**
  * Created by Man on 21.03.2017.
  */
+
 @EnableWebMvc
 @Configuration
 @ComponentScan("ua.automatisationInc.pos.controller")
