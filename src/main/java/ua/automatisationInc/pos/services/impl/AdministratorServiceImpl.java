@@ -6,12 +6,15 @@ import org.springframework.transaction.annotation.Transactional;
 import ua.automatisationInc.pos.dao.BillDao;
 import ua.automatisationInc.pos.dao.DishDao;
 import ua.automatisationInc.pos.dao.IngredientDao;
+import ua.automatisationInc.pos.models.Bill;
 import ua.automatisationInc.pos.models.Dish;
 import ua.automatisationInc.pos.models.Ingredient;
+import ua.automatisationInc.pos.models.enums.BillStatus;
 import ua.automatisationInc.pos.services.AdministratorService;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Created by PavelGrudina on 05.04.2017.
@@ -31,48 +34,60 @@ public class AdministratorServiceImpl implements AdministratorService {
     @Override
     @Transactional
     public List<Ingredient> getAllIngredients() {
-        return null;
+        return ingredientDao.findAll();
     }
 
     @Override
     @Transactional
     public List<Dish> getAllDishes() {
-        return null;
+        return dishDao.findAllDish();
     }
 
     @Override
     @Transactional
     public String getIngredientStatus(Ingredient ingredient) {
-        return null;
+        double weight = ingredient.getWeight();
+        if (weight > 100) {
+            return "enough";
+        } else {
+            return "need to add";
+        }
     }
 
     @Override
     @Transactional
     public Ingredient saveIngredient(Ingredient ingredient) {
-        return null;
+        return ingredientDao.saveOrUpdate(ingredient);
     }
 
     @Override
     @Transactional
     public void deleteIngredientById(long id) {
-
+        ingredientDao.delete(id);
     }
 
     @Override
     @Transactional
     public Dish saveDish(Dish dish) {
-        return null;
+        return dishDao.saveOrUpdate(dish);
     }
 
     @Override
     @Transactional
     public void deleteDishById(long id) {
-
+        dishDao.delete(id);
     }
 
     @Override
     @Transactional
     public double billSumByDate(LocalDate date) {
-        return 0;
+        double sum = 0;
+        List<Bill> billsByDate = billDao.findByDate(date);
+        List<Bill> billsDoneByDate = billsByDate.stream().filter(bill -> bill.getStatus() == BillStatus.DONE).collect(Collectors.toList());
+        //billsDoneByDate.forEach((bill) -> sum += bill.getTotalPrice());
+        for (Bill bill : billsDoneByDate) {
+            sum+=bill.getTotalPrice();
+        }
+        return sum;
     }
 }
