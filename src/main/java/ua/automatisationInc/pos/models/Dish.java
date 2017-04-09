@@ -80,6 +80,11 @@ public class Dish {
     }
 
     public double getWeight() {
+        double dishWeight=0;
+        for (Ingredient ingr:ingredients) {
+            dishWeight += ingr.getWeight();
+        }
+        weight = dishWeight;
         return weight;
     }
 

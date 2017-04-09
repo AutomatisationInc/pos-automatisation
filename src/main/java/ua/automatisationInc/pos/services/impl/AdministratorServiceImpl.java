@@ -45,6 +45,18 @@ public class AdministratorServiceImpl implements AdministratorService {
 
     @Override
     @Transactional
+    public List<Bill> getAllBills() {
+        return billDao.findAll();
+    }
+
+    @Override
+    @Transactional
+    public Ingredient findById(long id) {
+        return ingredientDao.findById(id);
+    }
+
+    @Override
+    @Transactional
     public String getIngredientStatus(Ingredient ingredient) {
         double weight = ingredient.getWeight();
         if (weight > 100) {
