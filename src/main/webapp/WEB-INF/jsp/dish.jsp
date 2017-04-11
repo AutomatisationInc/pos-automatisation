@@ -156,8 +156,8 @@
                     <c:forEach items="${dish.ingredients}" var="ingredient" varStatus="count">
                     <tr>
 
-                        <input id="ingredient" type="checkbox" checked name="ingredient.name" value="${ingredient.name}"/>${ingredient.name}
-                        <input id="weight" type="text" class="form-control" name="ingredient.weight" value="${ingredient.weight}"/>
+                        <input id="ingredient" type="checkbox" checked name="ingredientName" value="${ingredient.name}"/>${ingredient.name}
+                        <input id="weight" type="text" class="form-control" name="ingredientWeight" value="${ingredient.weight}"/>
                     </tr>
                     </c:forEach>
 

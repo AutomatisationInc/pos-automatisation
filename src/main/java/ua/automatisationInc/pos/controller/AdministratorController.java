@@ -10,10 +10,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import ua.automatisationInc.pos.models.Bill;
 import ua.automatisationInc.pos.models.Dish;
 import ua.automatisationInc.pos.models.Ingredient;
+import ua.automatisationInc.pos.models.enums.DishType;
 import ua.automatisationInc.pos.services.AdministratorService;
 import ua.automatisationInc.pos.services.CashierService;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -39,6 +41,17 @@ public class AdministratorController {
         model.addAttribute("billList", billList);
         model.addAttribute("dateNow", LocalDate.now());
         return "/administrator";
+    }
+
+    @RequestMapping(path = "/administrator", method = RequestMethod.POST)
+    public String deleteIngredient(@RequestParam(name = "id", required = false) Long id) {
+        if (administratorService.findById(id) != null) {
+            administratorService.deleteIngredientById(id);
+        }
+        if (cashierService.getDishById(id) != null) {
+            administratorService.deleteDishById(id);
+        }
+        return "redirect:/administrator";
     }
 
     @RequestMapping(path = "/ingredient", method = RequestMethod.GET)
@@ -80,5 +93,6 @@ public class AdministratorController {
         administratorService.saveDish(dish);
         return "redirect:/administrator";
     }
+
 
 }
