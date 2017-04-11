@@ -1,8 +1,10 @@
-<%--
+<%@ page import="ua.automatisationInc.pos.models.Dish" %>
+<%@ page import="java.util.List" %>
+<%@ page import="ua.automatisationInc.pos.models.Ingredient" %><%--
   Created by IntelliJ IDEA.
   User: PavelGrudina
-  Date: 05.04.2017
-  Time: 21:29
+  Date: 09.04.2017
+  Time: 2:50
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -113,82 +115,59 @@
         <td id="header-cashier">Administrator</td>
         <td id="corporation-name">Automatisation Inc.</td>
     </tr>
-    <%--<h3 id="profit">Today we received: ${administratorService.billSumByDate(dateNow)}</h3>--%>
-
 </table>
 
-<table class="table table-bordered" id="container">
-    <tr>
-        <td id="header-dishes">Dishes
+<div class="container">
+    <div class="col-xs-4 centered">
+        <h3>Edit dish:</h3>
 
-            <c:url value="/dish" var="createDish"/>
-            <a href="${createDish}" class="btn btn-success" role="button">Add new Dish</a><br>
+        <c:url value="/dish" var="editUrl"/>
+        <form action="${editUrl}" method="post">
 
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th>№</th>
-                    <th>Name</th>
-                    <th>Weight</th>
-                    <th>Price</th>
+            <input type="hidden" name="id" value="${dish.id}">
 
-                </tr>
-                </thead>
-                <tbody>
-                <c:forEach items="${dishList}" var="dish" varStatus="count">
-                <tr>
-                    <th scope="row">${count.index + 1}</th>
-                    <td>
-                        <c:url value="/dish?id=${dish.id}" var="DishUrl"/>
-                        <a href="${DishUrl}">${dish.name}</a>
-                    </td>
-                    <td>${dish.weight}</td>
-                    <td>${dish.price}</td>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input id="name" type="text" class="form-control" name="name" value="${dish.name}">
+            </div>
 
+            <div class="form-group">
+                <label for="categorySANDWICH">Category:</label>
+                <input id="categorySANDWICH" type="radio" name="category" value="SANDWICH" ${dish.category == "SANDWICH" ? "checked" : ""}/>SANDWICH
+                <input id="categorySNACK" type="radio" name="category" value="SNACK" ${dish.category == "SNACK" ? "checked" : ""}/>SNACK
+                <input id="categorySIDES" type="radio" name="category" value="SIDES" ${dish.category == "SIDES" ? "checked" : ""}/>SIDES
+                <input id="categorySALAD" type="radio"  name="category" value="SALAD" ${dish.category == "SALAD" ? "checked" : ""}/>SALAD
+                <input id="categoryDESSERT" type="radio" name="category" value="DESSERT" ${dish.category == "DESSERT" ? "checked" : ""}/>DESSERT
+                <input id="categoryDRINK" type="radio" name="category" value="DRINK" ${dish.category == "DRINK" ? "checked" : ""}/>DRINK
+            </div>
 
-                </tr>
-                </c:forEach>
-            </table>
-        </td>
-        <td id="header-ingredients">Ingredients
+            <div class="form-group">
+                <label for="price">Price:</label>
+                <input id="price" type="text" class="form-control" name="price" value="${dish.price}">
+            </div>
 
-            <c:url value="/ingredient" var="createUrl"/>
-            <a href="${createUrl}" class="btn btn-success" role="button">Add new Ingredient</a><br>
+            <div class="form-group">
+                <label for="url">Photo URL:</label>
+                <input id="url" type="text" name="url" value="${dish.url}">
+            </div>
 
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th>№</th>
-                    <th>Name</th>
-                    <th>Weight</th>
-                    <th>Date</th>
-                    <th>Status</th>
+            <div class="form-group">
 
-                </tr>
-                </thead>
-                <tbody>
-                <c:forEach items="${ingredientList}" var="ingredient" varStatus="count">
-                <tr>
-                    <th scope="row">${count.index + 1}</th>
-                    <td>
-                        <c:url value="/ingredient?id=${ingredient.id}" var="IngredientUrl"/>
-                        <a href="${IngredientUrl}">${ingredient.name}</a>
-                    </td>
-                    <td>${ingredient.weight}</td>
-                    <td>${ingredient.date}</td>
-                    <td>${administratorService.getIngredientStatus(ingredient)}</td>
+                    <c:forEach items="${dish.ingredients}" var="ingredient" varStatus="count">
+                    <tr>
+
+                        <input id="ingredient" type="checkbox" checked name="ingredient.name" value="${ingredient.name}"/>${ingredient.name}
+                        <input id="weight" type="text" class="form-control" name="ingredient.weight" value="${ingredient.weight}"/>
+                    </tr>
+                    </c:forEach>
+
+            </div>
 
 
-                </tr>
-                </c:forEach>
-            </table>
-        </td>
-    </tr>
+            <input type="submit" class="btn btn-success" value="Submit">
+        </form>
+    </div>
+</div>
 
-</table>
-
-<a href="#header">
-    <img src="/static/img/upButton.png">
-</a>
 </body>
 </html>

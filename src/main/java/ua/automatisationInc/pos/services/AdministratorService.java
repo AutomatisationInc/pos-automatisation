@@ -1,5 +1,6 @@
 package ua.automatisationInc.pos.services;
 
+import ua.automatisationInc.pos.models.Bill;
 import ua.automatisationInc.pos.models.Dish;
 import ua.automatisationInc.pos.models.Ingredient;
 
@@ -15,9 +16,13 @@ public interface AdministratorService {
 
     List<Dish> getAllDishes ();
 
+    List<Bill> getAllBills ();
+
 //  Если у существующего Ingredient weight > 100.0 (все считаем в граммах)
 //  возвращаем "enough" если < 100 возвращаем "need to add"
     String getIngredientStatus (Ingredient ingredient);
+
+    Ingredient findById (long id);
 
     Ingredient saveIngredient (Ingredient ingredient);
 

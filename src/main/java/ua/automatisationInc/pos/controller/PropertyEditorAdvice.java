@@ -20,9 +20,9 @@ public class PropertyEditorAdvice {
         binder.registerCustomEditor(LocalDate.class, new LocalDateEditor());
     }
 
-    @ExceptionHandler(Exception.class)
-    public String handleException() {
-        return "/cashier";
-    }
+//    @ExceptionHandler(Exception.class)
+//    public String handleException() {
+//        return "/cashier";
+//    }
 }
 
