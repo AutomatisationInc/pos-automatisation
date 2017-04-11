@@ -26,7 +26,7 @@
             margin-bottom: -1px;
         }
 
-        #header-cashier, #header-bill, header-dishes, header-ingredients  {
+        #header-cashier, #header-bill, header-dishes, header-ingredients {
 
             font-family: Bitter, serif;
             font-size: x-large;
@@ -47,6 +47,7 @@
             text-shadow: 1px 1px 1px black;
             width: 100%;
         }
+
         #profit {
             font-family: Bitter, serif;
             font-size: x-large;
@@ -80,25 +81,28 @@
             height: 60px;
         }
 
-        .dish-button {
-            border-radius: 5px;
-            width: 150px;
-            height: 110px;
-            text-align: center;
+        .deleteButton {
+            border-radius: 1px;
+            width: 10px;
+            height: 7px;
         }
+
         .table-hover {
             background: white;
         }
+
         #pay-button {
             width: 150px;
             height: 40px;
             float: right;
         }
-        #bonus-button{
+
+        #bonus-button {
             width: 70px;
             height: 40px;
             text-transform: uppercase;
         }
+
         #function-button {
             width: 70px;
             height: 40px;
@@ -145,6 +149,14 @@
                     <td>${dish.weight}</td>
                     <td>${dish.price}</td>
 
+                    <td>
+                        <c:url value="/administrator" var="deleteUrl"/>
+                        <form action="${deleteUrl}" method="post">
+                            <button type="submit" name="id" value="${dish.id}">delete
+                            </button>
+                        </form>
+                    </td>
+
 
                 </tr>
                 </c:forEach>
@@ -177,6 +189,15 @@
                     <td>${ingredient.weight}</td>
                     <td>${ingredient.date}</td>
                     <td>${administratorService.getIngredientStatus(ingredient)}</td>
+
+                    <td>
+                        <c:url value="/administrator" var="deleteUrl"/>
+                        <form action="${deleteUrl}" method="post">
+                            <button type="submit" name="id" value="${ingredient.id}">delete
+                                <%--<img src="/static/img/deleteIcon.jpg">--%>
+                            </button>
+                        </form>
+                    </td>
 
 
                 </tr>
