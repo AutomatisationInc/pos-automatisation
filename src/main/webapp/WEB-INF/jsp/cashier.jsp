@@ -49,32 +49,37 @@
 
         #nav {
             text-align: center;
-            background: darkgrey;
+            padding-top: 20px;
             width: 15%; /* Ширина левой колонки */
             float: left;
+            height: 100%;
+            border-right: 5px;
+            border-color: black;
         }
 
         #aside {
             background: darkgrey;
-            width: 30%; /* Ширина правой колонки */
+            width: 24%; /* Ширина правой колонки */
             float: right;
+
         }
 
         #content {
             padding-top: 30px;
-            padding-left: 37px;
+            padding-left: 45px;
             text-align: center;
-            width: 70%;
+            width: 80%;
+            margin: 0px;
+            padding-left: 29%;
         }
 
         .category-button {
             border-radius: 5px;
-            width: 110px;
-            height: 60px;
+            width: 45%;
+            height: 70px;
         }
 
         .dish-button {
-            border-radius: 5px;
             width: 150px;
             height: 110px;
             text-align: center;
@@ -97,6 +102,10 @@
             height: 40px;
 
         }
+        .col-md-2{
+            padding: 0px;
+            width: initial;
+        }
 
     </style>
 </head>
@@ -109,25 +118,25 @@
     </tr>
 </table>
 <div id="container">
-    <div id="nav">
+    <div id="nav" class=".col-md-3">
         <c:forEach items= "${dishTypes}" var="dishType" varStatus="count">
             <input type="image" src="/static/img/${dishType}.jpg" class="category-button" id="${dishType}" value=${dishType}>
             <p><strong>${dishType}</strong></p>
         </c:forEach>
     </div>
-    <div id="aside">
-            <table class="table table-hover" id="check">
-                <thead>
-                <tr>
-                    <th>Title</th>
-                    <th>Weight</th>
-                    <th>Price</th>
-                </tr>
-                </thead>
-                <tbody>
+    <div id="aside" class=".col-md-3">
+        <table class="table table-hover" id="check">
+            <thead>
+            <tr>
+                <th>Title</th>
+                <th>Weight</th>
+                <th>Price</th>
+            </tr>
+            </thead>
+            <tbody>
 
-                </tbody>
-            </table>
+            </tbody>
+        </table>
 
         <button type="submit" class="btn btn-default" id="function-button"><strong>...</strong></button>
         <button type="submit" class="btn btn-default" id="bonus-button"><strong>%</strong></button>

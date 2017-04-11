@@ -22,7 +22,7 @@
                     </form>
                 </li>
                 <li>
-                    <form action="" method="get">
+                    <form action="/kitchen" method="get">
                         <input type="submit" class="button" id="kitchen-button" value="KITCHEN"/>
                     </form>
                 </li>
