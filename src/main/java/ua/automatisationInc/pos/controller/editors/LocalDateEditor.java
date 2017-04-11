@@ -9,7 +9,7 @@ import java.time.format.DateTimeFormatter;
  */
 public class LocalDateEditor extends PropertyEditorSupport {
 
-    private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd, MM, yyyy");
+    private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
     @Override
     public String getAsText() {
