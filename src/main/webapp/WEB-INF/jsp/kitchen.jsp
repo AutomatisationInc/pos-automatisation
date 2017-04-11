@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Евгений
@@ -34,7 +35,7 @@
                 <h3 class="bildNumber">${bill.id}</h3>
                 <table class="bild-table">
                     <tr class="bild-table-nomber">
-                        <th>Name</th>
+                        <th>${bill.comment}</th>
                         <th>Count</th>
                     </tr>
                     <tr>
