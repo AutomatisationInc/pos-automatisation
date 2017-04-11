@@ -42,8 +42,13 @@ public class AdministratorController {
     }
 
     @RequestMapping(path = "/ingredient", method = RequestMethod.GET)
-    public String getIngredientEdit(@RequestParam(name = "ingredientId") String ingredientId, Model model) {
-        Ingredient ingredient = administratorService.findById(Long.parseLong(ingredientId));
+    public String addIngredient(@RequestParam(name = "id", required = false) Long id, Model model) {
+        Ingredient ingredient;
+        if (id != null) {
+            ingredient = administratorService.findById(id);
+        } else {
+            ingredient = new Ingredient();
+        }
         model.addAttribute("ingredient", ingredient);
         return "/ingredient";
     }
@@ -56,14 +61,22 @@ public class AdministratorController {
 
 
     @RequestMapping(path = "/dish", method = RequestMethod.GET)
-    public String getDishEdit(@RequestParam(name = "dishId") String dishId, Model model) {
-        Dish dish = cashierService.getDishById(Long.parseLong(dishId));
+    public String addDish(@RequestParam(name = "id", required = false) Long id, Model model) {
+        Dish dish;
+        if (id != null) {
+            dish = cashierService.getDishById(id);
+        } else {
+            dish = new Dish();
+            List<Ingredient> ingredientList = administratorService.getAllIngredients();
+            dish.setIngredients(ingredientList);
+            dish.setWeight();
+        }
         model.addAttribute("dish", dish);
         return "/dish";
     }
 
-    @RequestMapping (path = "/dish", method = RequestMethod.POST)
-    public String edit (@ModelAttribute Dish dish) {
+    @RequestMapping(path = "/dish", method = RequestMethod.POST)
+    public String edit(@ModelAttribute Dish dish) {
         administratorService.saveDish(dish);
         return "redirect:/administrator";
     }

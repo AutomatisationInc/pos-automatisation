@@ -1,14 +1,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>ua.automatisation-inc.pos</groupId>
-  <artifactId>pos-automatisation</artifactId>
-  <packaging>war</packaging>
-  <version>1.0</version>
-  <name>posAutomatisation Maven Webapp</name>
-  <url>http://maven.apache.org</url>
-   <properties>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>ua.automatisation-inc.pos</groupId>
+    <artifactId>pos-automatisation</artifactId>
+    <packaging>war</packaging>
+    <version>1.0</version>
+    <name>posAutomatisation Maven Webapp</name>
+    <url>http://maven.apache.org</url>
+    <properties>
         <java.version>1.8</java.version>
         <spring.version>4.3.7.RELEASE</spring.version>
     </properties>
@@ -33,11 +33,11 @@
         </dependency>
 
         <dependency>
-          <groupId>jstl</groupId>
-          <artifactId>jstl</artifactId>
-          <version>1.2</version>
-      </dependency>
-      <dependency>
+            <groupId>jstl</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+        </dependency>
+        <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
             <version>5.2.8.Final</version>
@@ -83,6 +83,15 @@
             </resource>
         </resources>
         <plugins>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>

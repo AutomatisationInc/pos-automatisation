@@ -1,4 +1,6 @@
-<%--
+<%@ page import="ua.automatisationInc.pos.models.Dish" %>
+<%@ page import="java.util.List" %>
+<%@ page import="ua.automatisationInc.pos.models.Ingredient" %><%--
   Created by IntelliJ IDEA.
   User: PavelGrudina
   Date: 09.04.2017
@@ -130,6 +132,16 @@
             </div>
 
             <div class="form-group">
+                <label for="categorySANDWICH">Category:</label>
+                <input id="categorySANDWICH" type="radio" name="category" value="SANDWICH" ${dish.category == "SANDWICH" ? "checked" : ""}/>SANDWICH
+                <input id="categorySNACK" type="radio" name="category" value="SNACK" ${dish.category == "SNACK" ? "checked" : ""}/>SNACK
+                <input id="categorySIDES" type="radio" name="category" value="SIDES" ${dish.category == "SIDES" ? "checked" : ""}/>SIDES
+                <input id="categorySALAD" type="radio"  name="category" value="SALAD" ${dish.category == "SALAD" ? "checked" : ""}/>SALAD
+                <input id="categoryDESSERT" type="radio" name="category" value="DESSERT" ${dish.category == "DESSERT" ? "checked" : ""}/>DESSERT
+                <input id="categoryDRINK" type="radio" name="category" value="DRINK" ${dish.category == "DRINK" ? "checked" : ""}/>DRINK
+            </div>
+
+            <div class="form-group">
                 <label for="price">Price:</label>
                 <input id="price" type="text" class="form-control" name="price" value="${dish.price}">
             </div>
@@ -144,8 +156,8 @@
                     <c:forEach items="${dish.ingredients}" var="ingredient" varStatus="count">
                     <tr>
 
-                        <input id="ingredient" type="checkbox" checked name="name" value="${ingredient.name}">
-                        <input id="weight" type="text" class="form-control" name="weight" value="${ingredient.weight}">
+                        <input id="ingredient" type="checkbox" checked name="ingredient.name" value="${ingredient.name}"/>${ingredient.name}
+                        <input id="weight" type="text" class="form-control" name="ingredient.weight" value="${ingredient.weight}"/>
                     </tr>
                     </c:forEach>
 

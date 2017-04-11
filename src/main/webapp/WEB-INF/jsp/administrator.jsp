@@ -121,8 +121,8 @@
     <tr>
         <td id="header-dishes">Dishes
 
-            <c:url value="/dish" var="createUrl"/>
-            <a href="${createUrl}" class="btn btn-success" role="button">Add new Dish</a><br>
+            <c:url value="/dish" var="createDish"/>
+            <a href="${createDish}" class="btn btn-success" role="button">Add new Dish</a><br>
 
             <table class="table table-striped">
                 <thead>
